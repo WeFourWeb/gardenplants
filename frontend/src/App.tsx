@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Route path="/main_page" render = { () => <MainPage/>}/>
-      <Route exact path="" render = { () => <AuthorisationPage/>}/>
+      <Route exact path="/" render = { () => <AuthorisationPage/>}/>
     </div>
   );
 }
