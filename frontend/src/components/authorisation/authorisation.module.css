@@ -1,0 +1,12 @@
+.content_wrapper {
+    min-height: 100vh;
+    background-color: tomato;
+}
+
+.login_form_wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

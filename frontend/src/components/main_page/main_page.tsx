@@ -6,17 +6,18 @@ import {
   PieChartOutlined,
   FileDoneOutlined
 } from '@ant-design/icons';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import Administration from './administration/administration';
 import { Route } from 'react-router-dom';
 import Logistics from './logistics/logistics';
 import Orders from './orders/orders';
-
+import { connect } from 'react-redux';
 
 const { Header, Footer, Sider } = Layout;
 
 
 const MainPage = (props:any) => {
+  console.log(props)
   let [ collapsed, setEditMode ] = useState(false);
   let changeEditMode = () => {
       if(collapsed == false){
@@ -25,8 +26,14 @@ const MainPage = (props:any) => {
           setEditMode(false);
       }
   }
+  if(!props.authData){
+    return (
+      <Redirect to='/'/>
+    )
+  }
   
       return (
+      
         <Layout style={{ minHeight: '100vh' }}>
          <Sider collapsible collapsed={collapsed} onCollapse={changeEditMode}>
             <div className="logo" />
@@ -63,4 +70,8 @@ const MainPage = (props:any) => {
     
   }
 
-export default MainPage
+const mapStateToProps = (state: any) => ({
+  authData: state.authorisationData.userData.logined
+})
+
+export default connect(mapStateToProps, {})(MainPage)
