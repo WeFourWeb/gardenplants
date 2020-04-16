@@ -17,6 +17,7 @@ const { Header, Footer, Sider } = Layout;
 
 
 const MainPage = (props:any) => {
+  console.log(props)
   let [ collapsed, setEditMode ] = useState(false);
   let changeEditMode = () => {
       if(collapsed == false){
@@ -25,7 +26,11 @@ const MainPage = (props:any) => {
           setEditMode(false);
       }
   }
-  if()
+  if(!props.authData){
+    return (
+      <Redirect to='/'/>
+    )
+  }
   
       return (
       
@@ -65,8 +70,8 @@ const MainPage = (props:any) => {
     
   }
 
-const mapStateToProps = (state:any) => ({
-  authData: state.authorisationData.logined
+const mapStateToProps = (state: any) => ({
+  authData: state.authorisationData.userData.logined
 })
 
-//export default connect(mapStateToProps, {})(MainPage)
+export default connect(mapStateToProps, {})(MainPage)

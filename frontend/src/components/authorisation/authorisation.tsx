@@ -4,9 +4,14 @@ import { Row, Col, Layout } from 'antd';
 import LoginForm from './form/form';
 import { connect } from 'react-redux';
 import { getAuthResponse } from '../../redux/authReducer';
+import { NavLink, Redirect } from 'react-router-dom';
 
 const AuthorisationPage = (props:any) => {
-
+  if(props.authData){
+    return (
+      <Redirect to='/main_page'/>
+    )
+  }
     return (
         <div className={style.content_wrapper}>
             <Layout>
@@ -18,11 +23,11 @@ const AuthorisationPage = (props:any) => {
             </Row>
             </Layout>
         </div>
-    )
+    )cd
 }
 
 let mapStateToProps = (state:any) => ({
-
+  authData: state.authorisationData.userData.logined
 })
 
 
