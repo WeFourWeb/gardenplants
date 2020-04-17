@@ -1,0 +1,44 @@
+
+.logo_img{
+  align-items: center;
+  margin: auto;
+  margin-top: -12vh;
+  margin-left: 15%;
+  width: 70%;
+ 
+}
+.main_button{
+  margin-left: 8vw;
+  margin-top: 10%;
+}
+.main_input{
+  padding-right: 1vw;
+}
+
+.button:default{ 
+  height: 5vh;
+  width: 10vw;
+  min-width: 125px;
+  min-height: 30px;
+  margin: auto;
+  color: white;
+  background-color: #002140;
+  border: 1px solid #002140;
+  border-radius: 1px;
+}
+.button:hover{
+  background-color: #1890ff;
+  border: 1px solid #002140;
+}
+
+.input{
+  width: 26vw;
+  min-width: 250px;
+  margin-top: 10%;
+  transition-property: border;
+ 
+}
+
+.check_box{
+  margin-top: 5%;
+}
