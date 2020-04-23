@@ -1,0 +1,1 @@
+exports.getAdresses = require('./getAdresses')
