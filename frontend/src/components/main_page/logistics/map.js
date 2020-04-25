@@ -21,7 +21,6 @@ class Maps extends React.Component {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [this.state.lng, this.state.lat],
       zoom: this.state.zoom
-      
     });
     var marker = new mapboxgl.Marker()
     .setLngLat([30.3544, 59.8838])
