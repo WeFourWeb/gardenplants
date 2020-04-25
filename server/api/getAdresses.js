@@ -3,10 +3,54 @@ var config = require('../config')
 
 const url = `${config.protocol}${config.host}${config.path}`
 
+const defaultAdressArr = [
+	{
+		adress: '',
+		postcode: ''
+	},
+	{
+		adress: '',
+		postcode: ''
+	},
+	{
+		adress: '',
+		postcode: ''
+	},
+	{
+		adress: '',
+		postcode: ''
+	},
+	{
+		adress: '',
+		postcode: ''
+	},
+	{
+		adress: '',
+		postcode: ''
+	},
+	{
+		adress: '',
+		postcode: ''
+	},
+	{
+		adress: '',
+		postcode: ''
+	},
+	{
+		adress: '',
+		postcode: ''
+	}
+]
+
 class Adress {
-	constructor (adress, postcode) {
+	constructor (id, adress, postcode) {
+		this.orderId = id
 		this.adress = adress
 		this.postcode = postcode
+	}
+
+	returnCoords () {
+		
 	}
 }
 
@@ -29,5 +73,6 @@ module.exports.orders = axios.get(`${url}`, {
 	})
 	.catch((err) => {
 		console.log(`${err} error happened`)
+		return defaultAdressArr
 	})
 
