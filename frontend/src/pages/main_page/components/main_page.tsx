@@ -7,10 +7,10 @@ import {
   FileDoneOutlined
 } from '@ant-design/icons';
 import { NavLink, Redirect } from 'react-router-dom';
-import Administration from './administration/administration';
+import Administration from '../../../modules/administration/administration';
 import { Route } from 'react-router-dom';
-import Logistics from './logistics/logistics';
-import Orders from './orders/orders';
+import Logistics from '../../../modules/logistics/logistics';
+import Orders from '../../../modules/orders/orders';
 import { connect } from 'react-redux';
 
 const { Header, Footer, Sider } = Layout;
@@ -70,8 +70,4 @@ const MainPage = (props:any) => {
     
   }
 
-const mapStateToProps = (state: any) => ({
-  authData: state.authorisationData.userData.logined
-})
-
-export default connect(mapStateToProps, {})(MainPage)
+export default MainPage;

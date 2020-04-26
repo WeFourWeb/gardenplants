@@ -1,10 +1,8 @@
 import React from 'react'
 import style from './authorisation.module.css'
 import { Row, Col, Layout } from 'antd';
-import LoginForm from './form/form';
-import { connect } from 'react-redux';
-import { getAuthResponse } from '../../redux/authReducer';
-import { NavLink, Redirect } from 'react-router-dom';
+import LoginForm from '../../../components/form/form';
+import { Redirect } from 'react-router-dom';
 
 const AuthorisationPage = (props:any) => {
   if(props.authData){
@@ -32,14 +30,7 @@ const AuthorisationPage = (props:any) => {
     )
 }
 
-let mapStateToProps = (state:any) => ({
-  authData: state.authorisationData.userData.logined
-})
-
-
-export default connect(mapStateToProps, {getAuthResponse})(AuthorisationPage)
-
-
+export default AuthorisationPage
 
 
 

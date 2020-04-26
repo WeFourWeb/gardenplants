@@ -3,7 +3,7 @@ import { Layout } from 'antd'
 import style from './logistics.module.css'
 import Maps from './map'
 import { connect } from 'react-redux'
-import { getOrders } from '../../../redux/ordersReducer'
+import { getOrders } from '../../redux/reducers/ordersReducer'
 
 const Logistics = (props: any) => {
     useEffect(() => {
