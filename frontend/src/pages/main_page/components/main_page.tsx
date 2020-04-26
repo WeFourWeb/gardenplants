@@ -59,11 +59,9 @@ const MainPage = (props:any) => {
             </Menu>
           </Sider>
           <Layout className="site-layout">
-            <Header className="site-layout-background" style={{ padding: 0 }} />
             <Route path="/main_page/administration" render = { () => <Administration/>}/>
             <Route path="/main_page/logistics" render = { () => <Logistics/>}/>
             <Route path="/main_page/orders" render = { () => <Orders/>}/>
-            <Footer style={{ textAlign: 'center' }}>Gardenplants ©2020 Created by Wefour</Footer>
           </Layout>
         </Layout>
       );

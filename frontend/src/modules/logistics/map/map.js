@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
-import style from './map.css'
+import style from './map.module.css'
 mapboxgl.accessToken='pk.eyJ1IjoiaWxpYXNuayIsImEiOiJjazk0ZjFsM3AwYWpvM21venRhMHVxZnV0In0.89Hh6UMwZgvHAkbohiT8JQ';
 
 
 class Maps extends React.Component {
   constructor(props) {
   super(props);
-    this.state = {
-      lat: 59.9337,
-      lng: 30.352,
+    this.state = { 
+      lat: 51.5095,
+      lng:  0.0054,
       zoom: 9
     };
   }
@@ -22,7 +22,7 @@ class Maps extends React.Component {
       center: [this.state.lng, this.state.lat],
       zoom: this.state.zoom
     });
-    var marker = new mapboxgl.Marker()
+    var marker = new mapboxgl.Marker() 
     .setLngLat([30.3544, 59.8838])
     .addTo(map);
                              
@@ -37,7 +37,7 @@ class Maps extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={style.map_wrapper}>
         <div className='sidebarStyle'>
           <div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
         </div>
