@@ -1,4 +1,4 @@
-import { authAPI } from "../API/api"
+import { authAPI } from "../../API/api"
 
 
 const SET_ORDERS = 'SET_ORDERS'

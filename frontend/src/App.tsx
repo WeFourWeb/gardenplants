@@ -1,8 +1,8 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Route } from 'react-router-dom';
-import AuthorisationPage from './components/authorisation/authorisation';
-import MainPage from './components/main_page/main_page';
+import AuthorisationPage from './pages/authorisation_page';
+import MainPage from './pages/main_page';
 
 
 
