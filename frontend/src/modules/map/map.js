@@ -37,12 +37,15 @@ class Maps extends React.Component {
 
   render() {
     return (
-      <div className={style.map_wrapper}>
-        <div className='sidebarStyle'>
-          <div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
-        </div>
-        <div ref={el => this.mapContainer = el} className='mapContainer'/>
-      </div>
+      
+    
+    <div ref={el => this.mapContainer = el} className={style.map_container}/>
+      //<div className={style.map_wrapper}>
+        //  <div className='sidebarStyle'>
+        //   <div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
+        // </div> 
+       
+      //</div>
     )
   }
 }

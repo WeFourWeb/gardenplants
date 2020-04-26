@@ -1,8 +1,17 @@
 .content {
+    padding: 5px 5px;
     height: 70vh;
     background-color: white;
     margin: 15px 15px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+}
+
+.sider {
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: white;
+    overflow: auto;
 }

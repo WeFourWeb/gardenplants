@@ -9,7 +9,7 @@ import {
 import { NavLink, Redirect } from 'react-router-dom';
 import Administration from '../../../modules/administration/administration';
 import { Route } from 'react-router-dom';
-import Logistics from '../../../modules/logistics/logistics';
+import Logistics from '../../logistics/logistics';
 import Orders from '../../../modules/orders/orders';
 import { connect } from 'react-redux';
 
