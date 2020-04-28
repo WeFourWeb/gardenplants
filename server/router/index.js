@@ -21,4 +21,9 @@ module.exports = (app) => {
 		const queryResult = api.addProductType(req.body)
 		res.send(queryResult)
 	})
+	//
+	app.post('/api/addActiveRoute.js', (req, res) => {
+		const queryResult = api.addActiveRoute(req.body)
+		res.send(queryResult)
+	})
 }
