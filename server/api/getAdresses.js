@@ -43,21 +43,35 @@ const defaultAdressArr = [
 ]
 
 class Adress {
-	constructor (id, adress, postcode) {
+	constructor (id, postcode, lat, lng) {
 		this.orderId = id
-		this.adress = adress
 		this.postcode = postcode
+		this.lat = lat
+		this.lng = lng
 	}
 
-	returnCoords () {
+	newAdress (id, postcode, adress) {
+
+		const params = {
+			access_token = config.mapApiAccessToken
+		}
 		
+		const geoParams = `${adress}.json`
+
+		axios.get(geoParams, {params})
+		.then((res) => {
+			return new Adress(id, postcode, res, res)
+		})
+		.catch((err) => {
+			return err
+		})
 	}
 }
 
 var getAdressArr = (orders) => {
 	var adressArr = []
 	orders.forEach((order, index) => {
-		adressArr[index] = new Adress (`${order.shipping.address_1} ${order.shipping.address_2}`, `${order.shipping.postcode}`) 
+		adressArr[index] = Adress.newAdress(`${order.id}`, `${order.shipping.postcode}`, `${order.shipping.adress_1} ${order.shipping.adress_2}`)
 	})
 	return adressArr
 }
@@ -72,7 +86,6 @@ module.exports.orders = axios.get(`${url}`, {
 		return getAdressArr(res.data)
 	})
 	.catch((err) => {
-		console.log(`${err} error happened`)
+		console.log(err)
 		return defaultAdressArr
 	})
-
