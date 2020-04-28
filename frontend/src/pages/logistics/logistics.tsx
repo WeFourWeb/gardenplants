@@ -18,7 +18,7 @@ const Logistics = (props: any) => {
     return (
         <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
             
-            <Orders/>
+            {/* <Orders/> */}
            
            <div> <Maps className={style.content} /></div>
            
