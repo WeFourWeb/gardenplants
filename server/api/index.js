@@ -7,3 +7,7 @@ exports = (product) => {
 exports = (productType) => {
 	addProductType = require('./addProductType')(productType)
 }
+
+exports = (activeRoute) => {
+	addActiveRoute = require('./addActiveRoute')(activeRoute)
+}
