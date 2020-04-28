@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient
 
 const mongoClient = new MongoClient(config.mongoHost, { useUnifiedTopology: true })
 
-module.exports = (activeRoute) => {
+module.exports = () => {
 	mongoClient.connect((err, client) => {
 		if (err) {
 			return err
@@ -11,13 +11,15 @@ module.exports = (activeRoute) => {
 		else {
 			const db = client.db('gardenplants')
 			const activeRoutesCollection = db.collection('activeRoutes')
-			activeRoutesCollection.insertOne(activeRoute, (err, res) => {
+			
+			activeRoutesCollection.find({}).toArray((err, routes) => {
 				if (err) {
+					console.log(err)
 					return err
 				}
 				else {
-					console.log(res.ops)
-					return true
+					console.log('got routes')
+					return routes
 				}
 			})
 		}

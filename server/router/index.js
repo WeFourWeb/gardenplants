@@ -21,9 +21,14 @@ module.exports = (app) => {
 		const queryResult = api.addProductType(req.body)
 		res.send(queryResult)
 	})
-	//
-	app.post('/api/addActiveRoute.js', (req, res) => {
+	//Сохранение маршрута в бд
+	app.post('/api/addActiveRoute', (req, res) => {
 		const queryResult = api.addActiveRoute(req.body)
+		res.send(queryResult)
+	})
+	//Получение сохраненных маршрутов
+	app.get('/api/getActiveRoutes', (req, res) => {
+		const queryResult = api.getActiveRoutes
 		res.send(queryResult)
 	})
 }
