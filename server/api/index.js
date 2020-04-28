@@ -11,3 +11,5 @@ exports = (productType) => {
 exports = (activeRoute) => {
 	addActiveRoute = require('./addActiveRoute')(activeRoute)
 }
+
+exports.getActiveRoutes = require('./addActiveRoute')
