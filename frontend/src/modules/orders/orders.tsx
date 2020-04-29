@@ -15,19 +15,15 @@ const Orders = (props: any) => {
       }
     }
     return (
-        <Sider width={'22vw'}className={style.sider}collapsible collapsed={collapsed} onCollapse={changeEditMode}>
-             
-                
-                    <Order collapsed={collapsed} />
-                    <Order collapsed={collapsed}/>
-                    <Order collapsed={collapsed}/>
-                    <Order collapsed={collapsed}/>
-                    <Order collapsed={collapsed} />
-                    <Order collapsed={collapsed}/>
-                    <Order collapsed={collapsed}/>
-                    <Order collapsed={collapsed}/>
-                
-          
+        <Sider width={'22vw'}className={style.sider}collapsible collapsed={collapsed} onCollapse={changeEditMode}>     
+            <Order collapsed={collapsed} />
+            <Order collapsed={collapsed}/>
+            <Order collapsed={collapsed}/>
+            <Order collapsed={collapsed}/>
+            <Order collapsed={collapsed} />
+            <Order collapsed={collapsed}/>
+            <Order collapsed={collapsed}/>
+            <Order collapsed={collapsed}/>
         </Sider> 
     )
 }
