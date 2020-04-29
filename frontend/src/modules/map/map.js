@@ -5,7 +5,8 @@ import style from './map.module.css'
 mapboxgl.accessToken='pk.eyJ1IjoiaWxpYXNuayIsImEiOiJjazk0ZjFsM3AwYWpvM21venRhMHVxZnV0In0.89Hh6UMwZgvHAkbohiT8JQ';
 
 
-class Maps extends React.Component {
+
+class Maps extends React.Component  ({orders}, props){
   constructor(props) {
   super(props);
     this.state = { 
@@ -26,29 +27,33 @@ class Maps extends React.Component {
     .setLngLat([30.3544, 59.8838])
     .addTo(map);
                              
-    map.on('move', () => {
-      this.setState({
-        lng: map.getCenter().lng.toFixed(4),
-        lat: map.getCenter().lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2)
-      });
-    });
-  }
+    map.on('load', function() {
+      map.addSource('places', {
+      'type': 'geojson',
+      'data': {
+      'type': 'FeatureCollection',
+      'features': [
+        {
+          'type': 'Feature',
+          'properties': {
+          'icon': 'theatre'
+          },
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [-77.038659, 38.931567]
+          }
+        }
+      ]
+    }
+  })})
 
-  render() {
-    return (
+render() {
+    return (   
+      <div ref={el => this.mapContainer = el} className={style.map_container}/>
       
-    
-    <div ref={el => this.mapContainer = el} className={style.map_container}/>
-      //<div className={style.map_wrapper}>
-        //  <div className='sidebarStyle'>
-        //   <div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
-        // </div> 
-       
-      //</div>
     )
   }
 }
 
 export default Maps;
-ReactDOM.render(<Maps/>, document.getElementById('root'))
+//ReactDOM.render(<Maps/>, document.getElementById('root'))
