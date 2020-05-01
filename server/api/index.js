@@ -1,15 +1,5 @@
-exports.getAdresses = require('./getAdresses')
+const getAdresses = require('./getAdresses')
 
-exports = (product) => {
-	const addProduct = require('./addProduct')(product)
+module.exports = {
+		getAdresses
 }
-
-exports = (productType) => {
-	const addProductType = require('./addProductType')(productType)
-}
-
-exports = (activeRoute) => {
-	const addActiveRoute = require('./addActiveRoute')(activeRoute)
-}
-
-exports.getActiveRoutes = require('./addActiveRoute')
