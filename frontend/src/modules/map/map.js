@@ -94,15 +94,15 @@ class Maps extends React.Component  {
     DrawMarkers();
     let coordinatesArr= []
     let count =0
-    let DrawLine = function (start, finish) {
-      fetch(`https://api.mapbox.com/directions/v5/mapbox/driving-traffic/${start[0]},${start[1]};${finish[0]},${finish[1]}?geometries=geojson&overview=full&access_token=${mapboxgl.accessToken}`)
+    let DrawLine = function(route) {
+      fetch(`https://api.mapbox.com/optimized-trips/v1/mapbox/driving-traffic/${route}?geometries=geojson&overview=full&access_token=${mapboxgl.accessToken}`)
         .then((response) => {
           return response.json();
         }
         )
         .then((data) => {
-          coordinatesArr.push((data["routes"][0]["geometry"]["coordinates"]))
-          console.log(coordinatesArr);
+          coordinatesArr=data["trips"][0]["geometry"]["coordinates"]
+          // console.log(coordinatesArr);
         }
         )
         .then(()=> {
@@ -113,7 +113,7 @@ class Maps extends React.Component  {
               'properties': {},
               'geometry': {
                 'type': 'LineString',
-                'coordinates': coordinatesArr[count]
+                'coordinates': coordinatesArr
               }
             }
           }
@@ -143,9 +143,20 @@ class Maps extends React.Component  {
     map.on('click' , 'places' , function(e){  
       Arr.push(e.features[0].geometry.coordinates) 
       new mapboxgl.Marker().setLngLat(e.features[0].geometry.coordinates).addTo(map);  
-      DrawLine( Arr[Arr.length-2],Arr[Arr.length-1]);        
+      // DrawLine( Arr[Arr.length-2],Arr[Arr.length-1]);        
     } 
     );  
+
+    
+    map.on('dblclick', function() {
+      let routesMap = Arr.map (el => (
+        el[0].toString()+','+el[1].toString()+';'
+        )
+      )
+      routesMap=routesMap.join('')
+      routesMap=routesMap.slice(0, routesMap.length-2)
+      DrawLine(routesMap)
+    })
   } 
 
   render() {
