@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Layout } from 'antd'
 import style from './logistics.module.css'
 import Maps from '../../../modules/map/map'
@@ -16,13 +16,17 @@ const Logistics: React.FC<LogisticProps> = ({getOrders, getRoutes, routes, order
         getOrders()
         getRoutes()
     }, [])    
+    let [points, editPoints] = useState([])
+    const addNewPoint = (point: any) => {
+        editPoints(point)
+    }
     return (
         <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
             
             <Routes/>
            
            <div className={style.content}> 
-                <Maps routes={routes} orders={orders}  />
+                <Maps addNewPoint={addNewPoint} routes={routes} orders={orders}  />
            </div>
            
           

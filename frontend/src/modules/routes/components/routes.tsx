@@ -7,8 +7,12 @@ import NewRoute from '../../../components/new_route/new_route';
 const { Sider } = Layout;
 
 const Routes = (props: any) => {
-    let [routes, editPoints] = useState([])
+   
     let [ collapsed, setEditMode ] = useState(false);
+    let [routes, editPoints] = useState([])
+    const addNewPoint = (point: any) => {
+        editPoints(point)
+    }
     let changeEditMode = () => {
       if(collapsed == false){
           setEditMode(true);
@@ -19,6 +23,7 @@ const Routes = (props: any) => {
     
     return (
         <Sider className={style.sider}collapsible  onCollapse={changeEditMode}>
+            <Button onClick={()=> addNewPoint('hi')}>Hi</Button>
                 <NewRoute routes={routes} editPoints={editPoints}/>
             <Route/>
         </Sider> 
