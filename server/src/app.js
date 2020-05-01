@@ -15,5 +15,3 @@ require('../router')(app)
 app.listen(process.env.PORT || 1001, () => {
 	console.log('listening...')
 })
-
-

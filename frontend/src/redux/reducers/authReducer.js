@@ -1,11 +1,11 @@
-import { authAPI } from "../API/api"
+import { authAPI } from "../../API/api"
 
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
 let initialstate = {
     userData: {
-        
+        logined: true
     }
 }
 

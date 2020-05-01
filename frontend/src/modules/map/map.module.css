@@ -1,0 +1,10 @@
+.map_wrapper {
+  min-height: 98vh;
+  overflow: hidden;
+}
+
+.map_container {
+  min-height: 98vh;
+   width: 100vw; 
+   overflow: hidden;
+}

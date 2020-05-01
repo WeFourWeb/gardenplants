@@ -2,7 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form';
 import style from './form.module.css';
 
-import { AntdInput, AntdCheckbox, AntdButton} from '../../common/custom_antd/custom_antd'
+import { AntdInput, AntdCheckbox, AntdButton} from '../custom_antd/custom_antd'
 
 const Form = (props: any) => {
     return (

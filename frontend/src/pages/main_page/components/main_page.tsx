@@ -7,10 +7,11 @@ import {
   FileDoneOutlined
 } from '@ant-design/icons';
 import { NavLink, Redirect } from 'react-router-dom';
-import Administration from './administration/administration';
+import Administration from '../../../modules/administration/administration';
 import { Route } from 'react-router-dom';
-import Logistics from './logistics/logistics';
-import Orders from './orders/orders';
+import Logistics from '../../../pages/logistics';
+import Orders from '../../../modules/orders/orders';
+import ProductManagement from '../../productManagement/component/productManagement';
 import { connect } from 'react-redux';
 
 const { Header, Footer, Sider } = Layout;
@@ -56,22 +57,23 @@ const MainPage = (props:any) => {
                   <span>Orders</span>
                 </NavLink>
               </Menu.Item>
+              <Menu.Item key="4">
+                <NavLink to="/main_page/product_management">
+                <FileDoneOutlined/>
+                  <span>Product management</span>
+                </NavLink>
+              </Menu.Item>
             </Menu>
           </Sider>
           <Layout className="site-layout">
-            <Header className="site-layout-background" style={{ padding: 0 }} />
             <Route path="/main_page/administration" render = { () => <Administration/>}/>
             <Route path="/main_page/logistics" render = { () => <Logistics/>}/>
             <Route path="/main_page/orders" render = { () => <Orders/>}/>
-            <Footer style={{ textAlign: 'center' }}>Gardenplants ©2020 Created by Wefour</Footer>
+            <Route path="/main_page/product_management" render = { () => <ProductManagement/>}/>
           </Layout>
         </Layout>
       );
     
   }
 
-const mapStateToProps = (state: any) => ({
-  authData: state.authorisationData.userData.logined
-})
-
-export default connect(mapStateToProps, {})(MainPage)
+export default MainPage;
