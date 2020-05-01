@@ -10,30 +10,30 @@ class Adress {
 		this.lat = lat
 		this.lng = lng
 	}
+}
 
-	newAdress (id, postcode, adress) {
+var getAdressArr = async (orders) => {
+	let adressArr = []
+	let index = 0
+	const params = {
+		access_token: config.mapApiAccessToken
+	}
 
-		const params = {
-			access_token: config.mapApiAccessToken
-		}
-		
-		const geoParams = `${adress}.json`
+	for (const order of orders) {
+		let id = order.id
+		let postcode = order.shipping.postcode
+		let adress = `${order.shipping.address_1} ${order.shipping.address_2} ${order.shipping.city}`
+		const geoParams = `${adress} ${postcode}.json`
 
-		axios.get(geoParams, {params})
+		await axios.get(`${config.mapApiUrl}${geoParams}`, {params})
 		.then((res) => {
-			return new Adress(id, postcode, res, res)
+			adressArr[index] = new Adress(id, postcode, res.data.features[0].center[1], res.data.features[0].center[0])
 		})
 		.catch((err) => {
 			return err
 		})
+		index++
 	}
-}
-
-var getAdressArr = (orders) => {
-	var adressArr = []
-	orders.forEach((order, index) => {
-		adressArr[index] = Adress.newAdress(`${order.id}`, `${order.shipping.postcode}`, `${order.shipping.adress_1} ${order.shipping.adress_2}`)
-	})
 	return adressArr
 }
 
@@ -44,8 +44,7 @@ module.exports.orders = axios.get(`${url}`, {
 		}
 	})
 	.then((res) => {
-		console.log(getAdressArr(res.data))
-		return res
+		return getAdressArr(res.data)
 	})
 	.catch((err) => {
 		return err
