@@ -5,10 +5,7 @@ module.exports = (app) => {
 	app.get('/api/getAdressList', (req, res) => {
 		api.getAdresses.orders
 		.then((adressArr) => {
-			if (adressArr.response.status == 200)
-				res.send(adressArr)
-			else
-				res.sendStatus(adressArr.response.status)
+			res.send(adressArr)
 		})
 		.catch((err) => {
 			console.log(err)

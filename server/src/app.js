@@ -11,4 +11,4 @@ app.use(cors())
 
 require('../router')(app)
 
-app.listen(process.env.PORT || 1000)
+app.listen(process.env.PORT || 1002)
