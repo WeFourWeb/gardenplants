@@ -1,0 +1,30 @@
+.add_new_route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 15px;
+}
+
+.new_route {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid rgb(177, 21, 21);
+}
+
+.new_route_title {
+    padding: 15px 15px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.new_route_title_c {
+    padding: 15px 15px 0 15px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+

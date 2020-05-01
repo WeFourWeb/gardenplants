@@ -1,0 +1,22 @@
+.content {
+    height: 100vh;
+    background-color: white;
+}
+
+.sider {
+    min-height: 100vh;
+    background-color: white;
+    overflow: auto;
+}
+
+.add_new_route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 15px;
+}
+
+.new_route_title_c {
+    
+}

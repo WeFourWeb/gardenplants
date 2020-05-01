@@ -1,14 +1,20 @@
 import { routsAPI } from "../../API/api"
 
 let initialstate = {
-    routs: []
+    routs: [],
+    newRoute: []
 }
 
 const routsReducer = (state=initialstate, action: any) => {
     switch(action.type){
         case 'SET_ROUTS': {
             return {
-                 ...state, routs: action.routs
+                 ...state, routes: action.routs
+            }
+        } 
+        case 'SET_NEW_POINT_IN_ROUTE': {
+            return {
+                ...state,  newRoute: [...state.newRoute, action.point]
             }
         }
         default: {
@@ -17,9 +23,11 @@ const routsReducer = (state=initialstate, action: any) => {
     }
 }
 
-const setRouts = (routs: any) => ({type: "SET_ROUTS", routs} )
+const setRouts = (routes: any) => ({type: "SET_ROUTS", routes} )
 
-export const getRouts = (routs: any) => async (dispatch: any) => {
+const setNewPointInRoute = (point: any) => ({type: 'SET_NEW_POINT_IN_ROUTE', point})
+
+export const getRoutes = (routs: any) => async (dispatch: any) => {
    let response: any = await routsAPI.getRouts()
    if(response.status !== 200){
        console.log(`some error with response ststus ${response.status}`)
