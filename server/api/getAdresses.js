@@ -3,45 +3,6 @@ var config = require('../config')
 
 const url = `${config.protocol}${config.host}${config.path}`
 
-const defaultAdressArr = [
-	{
-		adress: '',
-		postcode: ''
-	},
-	{
-		adress: '',
-		postcode: ''
-	},
-	{
-		adress: '',
-		postcode: ''
-	},
-	{
-		adress: '',
-		postcode: ''
-	},
-	{
-		adress: '',
-		postcode: ''
-	},
-	{
-		adress: '',
-		postcode: ''
-	},
-	{
-		adress: '',
-		postcode: ''
-	},
-	{
-		adress: '',
-		postcode: ''
-	},
-	{
-		adress: '',
-		postcode: ''
-	}
-]
-
 class Adress {
 	constructor (id, postcode, lat, lng) {
 		this.orderId = id
@@ -53,7 +14,7 @@ class Adress {
 	newAdress (id, postcode, adress) {
 
 		const params = {
-			access_token = config.mapApiAccessToken
+			access_token: config.mapApiAccessToken
 		}
 		
 		const geoParams = `${adress}.json`
@@ -83,9 +44,9 @@ module.exports.orders = axios.get(`${url}`, {
 		}
 	})
 	.then((res) => {
-		return getAdressArr(res.data)
+		console.log(getAdressArr(res.data))
+		return res
 	})
 	.catch((err) => {
-		console.log(err)
-		return defaultAdressArr
+		return err
 	})
