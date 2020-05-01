@@ -6,7 +6,7 @@ module.exports = (app) => {
 	app.get('/api/getAdressList', (req, res) => {
 		api.getAdresses.orders
 		.then((adressArr) => {
-				res.send(adressArr)
+			res.send(adressArr)
 		})
 		.catch((err) => {
 			console.log(err)
