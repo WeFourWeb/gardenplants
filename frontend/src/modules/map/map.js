@@ -37,6 +37,7 @@ class Maps extends React.Component  {
       }
       )
     )
+   
     let DrawMarkers = () => {
       map.on('load', function() {
         map.addSource('places', {
@@ -57,53 +58,84 @@ class Maps extends React.Component  {
           }
           }
           ) 
+          map.addSource('route', {
+            'type': 'geojson',
+            'data': {
+              'type': 'Feature',
+              'properties': {},
+              'geometry': {
+                'type': 'LineString',
+                'coordinates': []
+                  
+              }
+            }
+          }
+          );
+          map.addLayer({
+            'id': 'route',
+            'type': 'line',
+            'source': 'route',
+            'layout': {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            'paint': {
+              'line-color': '#888',
+              'line-width': 3
+            }
+          
+          
+          })
       }
       );
+      
+
     }
     DrawMarkers();
     let coordinatesArr= []
     let count =0
     let DrawLine = function (start, finish) {
-      fetch(`https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${finish[0]},${finish[1]}?geometries=geojson&access_token=${mapboxgl.accessToken}`)
+      fetch(`https://api.mapbox.com/directions/v5/mapbox/driving-traffic/${start[0]},${start[1]};${finish[0]},${finish[1]}?geometries=geojson&overview=full&access_token=${mapboxgl.accessToken}`)
         .then((response) => {
           return response.json();
         }
         )
         .then((data) => {
           coordinatesArr.push((data["routes"][0]["geometry"]["coordinates"]))
+          console.log(coordinatesArr);
         }
         )
-      //   .then(()=> {
-      //     map.addSource(`source${count}`, {
-      //       'type': 'geojson',
-      //       'data': {
-      //         'type': 'Feature',
-      //         'properties': {},
-      //         'geometry': {
-      //           'type': 'LineString',
-      //           'coordinates': coordinatesArr[count]
-      //         }
-      //       }
-      //     }
-      //     );
-      //     map.addLayer({
-      //       'id': `layer${count}`,
-      //       'type': 'line',
-      //       'source': `source${count}`,
-      //       'layout': {
-      //         'line-join': 'round',
-      //         'line-cap': 'round'
-      //       },
-      //       'paint': {
-      //         'line-color': '#888',
-      //         'line-width': 8
-      //       }
+        .then(()=> {
+          map.addSource(`source${count}`, {
+            'type': 'geojson',
+            'data': {
+              'type': 'Feature',
+              'properties': {},
+              'geometry': {
+                'type': 'LineString',
+                'coordinates': coordinatesArr[count]
+              }
+            }
+          }
+          );
+          map.addLayer({
+            'id': `layer${count}`,
+            'type': 'line',
+            'source': `source${count}`,
+            'layout': {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            'paint': {
+              'line-color': '#888',
+              'line-width': 3
+            }
           
           
-      //     })
-      // count++
-      //   }
-      //   )
+          })
+      count++
+        }
+        )
     }
     new mapboxgl.Marker().setLngLat([-0.5851639 , 51.4093628]).addTo(map);
     var Arr =[]
