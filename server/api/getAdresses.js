@@ -24,7 +24,6 @@ var getAdressArr = async (orders) => {
 		let postcode = order.shipping.postcode
 		let adress = `${order.shipping.address_1} ${order.shipping.address_2} ${order.shipping.city}`
 		const geoParams = `${adress} ${postcode}.json`
-
 		await axios.get(`${config.mapApiUrl}${geoParams}`, {params})
 		.then((res) => {
 			adressArr[index] = new Adress(id, postcode, res.data.features[0].center[1], res.data.features[0].center[0])
