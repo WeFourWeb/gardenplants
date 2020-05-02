@@ -16,7 +16,7 @@ class Maps extends React.Component  {
   }
 
   componentDidMount() {
-    
+    // console.log(this.props)
     var map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
@@ -24,16 +24,22 @@ class Maps extends React.Component  {
       zoom: this.state.zoom 
     });
 
-    let coords=[{"id":1,"lng":-0.7067573,"lat":51.3147712},{"id":2,"lng":-0.622613,"lat":51.36033},{"id":3,"lng":-0.739293,"lat":51.354024},{"id":4,"lng":-0.740415,"lat":51.389043},{"id":5,"lng":-0.70227,"lat":51.424035},{"id":6,"lng":-0.586515,"lat":51.485092},{"id":7,"lng":-0.612329,"lat":51.508643},{"id":8,"lng":-0.64295,"lat":51.514233},{"id":9,"lng":-0.485326,"lat":51.285948},{"id":10,"lng":-0.479931,"lat":51.292937},{"id":11,"lng":-0.49284,"lat":51.286972},{"id":12,"lng":-0.497368,"lat":51.286249}]
+    let coords=this.props.orders
     let markers = coords.map (adress => (
       {
         'type': 'Feature',
         'properties': {
-        'icon': 'rocket'
+        'description': 
+          `Order №${adress["orderId"]}
+          <br/>
+          Postcode ${adress["postcode"]}
+          <br/>
+          <button id="get_point">Add point to route</button>`,
+        'icon': 'garden'
         },
         'geometry': {
           'type': 'Point',
-          'coordinates': [adress.lng, adress.lat]
+          'coordinates': [adress["lng"], adress["lat"]]
         }
       }
       )
@@ -141,15 +147,40 @@ class Maps extends React.Component  {
     new mapboxgl.Marker().setLngLat([-0.5851639 , 51.4093628]).addTo(map);
     var Arr =[]
     Arr.push([-0.5851639 , 51.4093628])
-    map.on('click' , 'places' , function(e){  
-      Arr.push(e.features[0].geometry.coordinates) 
-      new mapboxgl.Marker().setLngLat(e.features[0].geometry.coordinates).addTo(map);  
-      // DrawLine( Arr[Arr.length-2],Arr[Arr.length-1]);        
-    } 
-    );  
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'places', function() {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+   
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'places', function() {
+      map.getCanvas().style.cursor = '';
+    });
+    
+    
+        map.on('click' , 'places' , function(e){  
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.description;
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+        let pop = new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML(description)
+          .addTo(map);
+        
+        document.getElementById('get_point').addEventListener('click', function (el) {
+          // this.props.addNewPoint(coordinates)
+          Arr.push(coordinates) 
+          pop.remove();
+        })
+        // DrawLine( Arr[Arr.length-2],Arr[Arr.length-1]);        
+      } 
+      );
+     
 
     
-    map.on('dblclick', function() {
+    document.getElementById("add_route").addEventListener('click', function() {
       let routesMap = Arr.map (el => (
         el[0].toString()+','+el[1].toString()+';'
         )
@@ -158,11 +189,22 @@ class Maps extends React.Component  {
       routesMap=routesMap.slice(0, routesMap.length-2)
       DrawLine(routesMap)
     })
-  } 
+    document.getElementById("del_route").addEventListener('click', function (){
+      if (count > 0)
+      { map.removeLayer(`layer${count-1}`)
+      map.removeSource(`source${count-1}`)
+      count--}
+      else alert ("Routes findn't")
+    })
+  }
 
   render() {
     return (
-      <div ref={el => this.mapContainer = el} className={style.map_container}/>
+      <div>
+        <button id="add_route">Add new route</button>
+        <button id="del_route">Remove last route</button>
+        <div ref={el => this.mapContainer = el} className={style.map_container}/>
+      </div>
     )
   }
 }
