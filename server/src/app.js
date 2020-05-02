@@ -2,7 +2,6 @@ var express = require('express')
 var bodyParser = require('body-parser') 
 var cors = require('cors') 
 var morgan = require('morgan')
-var db = require('../api/db') 
 
 const app = express()
 
