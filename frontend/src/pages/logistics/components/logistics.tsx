@@ -3,6 +3,7 @@ import { Layout } from 'antd'
 import style from './logistics.module.css'
 import Maps from '../../../modules/map/map'
 import Routes from '../../../modules/routes/components/routes'
+import { LoadingOutlined } from '@ant-design/icons';
 
 type LogisticProps = {
     getRoutes: any,
@@ -15,7 +16,8 @@ const Logistics: React.FC<LogisticProps> = ({getOrders, getRoutes, routes, order
     useEffect(() => {
         getOrders()
         getRoutes()
-    }, [])    
+    }, [])   
+    console.log(orders.length) 
     let [points, editPoints] = useState([])
     const addNewPoint = (point: any) => {
         editPoints(point)
@@ -26,7 +28,12 @@ const Logistics: React.FC<LogisticProps> = ({getOrders, getRoutes, routes, order
             <Routes routes={routes}/>
            
            <div className={style.content}> 
-                <Maps addNewPoint={addNewPoint} routes={routes} orders={orders}  />
+           {
+               orders.length !== 0
+               ? <Maps addNewPoint={addNewPoint} routes={routes} orders={orders}  />
+               : <LoadingOutlined />
+           }
+                
            </div>
            
           

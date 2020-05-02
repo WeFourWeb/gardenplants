@@ -4,9 +4,7 @@ import { ordersApi } from "../../API/api"
 const SET_ORDERS = 'SET_ORDERS'
 
 let initialstate = {
-    orders: {
-        
-    }
+    orders: []
 }
 
 const ordersReducer = (state=initialstate, action) => {
