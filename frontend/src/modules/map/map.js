@@ -16,6 +16,7 @@ class Maps extends React.Component  {
   }
 
   componentDidMount() {
+    
     var map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',

@@ -1,7 +1,7 @@
 import { routsAPI } from "../../API/api"
 
 let initialstate = {
-    routs: [],
+    routes: [],
     newRoute: []
 }
 

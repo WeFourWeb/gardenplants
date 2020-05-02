@@ -3,11 +3,11 @@ import style from './new_route.module.css'
 import { Button } from 'antd'
 
 type NewRoute = {
-    routes: any,
-    editPoints: any
+    points: any,
+    addNewPoint: any
 }
  
-const NewRoute:React.FC<NewRoute> =({routes, editPoints}) => {     
+const NewRoute:React.FC<NewRoute> =({points, addNewPoint}) => {     
     let [ newRout, setNewRouteMod ] = useState(false);
     let changeRouteMod = () => {
       if(newRout == false){

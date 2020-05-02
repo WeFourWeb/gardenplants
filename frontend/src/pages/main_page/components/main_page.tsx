@@ -61,7 +61,7 @@ const MainPage = (props:any) => {
           <Layout>
             <Route path="/main_page/administration" render = { () => <Administration/>}/>
             <Route path="/main_page/logistics" render = { () => <Logistics/>}/>
-            <Route path="/main_page/orders" render = { () => <Routes/>}/>
+            {/* <Route path="/main_page/orders" render = { () => <Routes/>}/> */}
             </Layout>
         </Layout>
       );

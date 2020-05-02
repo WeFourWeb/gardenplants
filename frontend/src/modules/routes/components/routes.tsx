@@ -6,26 +6,29 @@ import NewRoute from '../../../components/new_route/new_route';
 
 const { Sider } = Layout;
 
-const Routes = (props: any) => {
+type RoutesProps = {
+    routes: any
+}
+
+const Routes: React.FC<RoutesProps> = ({routes}, ...props) => {
    
     let [ collapsed, setEditMode ] = useState(false);
-    let [routes, editPoints] = useState([])
+    let [points, editPoints] = useState([])
     const addNewPoint = (point: any) => {
         editPoints(point)
     }
     let changeEditMode = () => {
       if(collapsed == false){
-          setEditMode(true);
+          setEditMode( false);
       } else {
           setEditMode(false);
       }
     }
-    
+    let routesArray = routes.map( (route: any) => <Route key={route._id} {...route}/>)
     return (
         <Sider className={style.sider}collapsible  onCollapse={changeEditMode}>
-            <Button onClick={()=> addNewPoint('hi')}>Hi</Button>
-                <NewRoute routes={routes} editPoints={editPoints}/>
-            <Route/>
+                <NewRoute points={points} addNewPoint={addNewPoint}/>
+                { routesArray }
         </Sider> 
     )
 }

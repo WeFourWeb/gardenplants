@@ -23,7 +23,7 @@ const Logistics: React.FC<LogisticProps> = ({getOrders, getRoutes, routes, order
     return (
         <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
             
-            <Routes/>
+            <Routes routes={routes}/>
            
            <div className={style.content}> 
                 <Maps addNewPoint={addNewPoint} routes={routes} orders={orders}  />

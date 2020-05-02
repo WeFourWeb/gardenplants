@@ -12,7 +12,7 @@ export const authAPI = {
 
 export const ordersApi  = {
     async getOrders() {
-        let response = await axios.get('http://wefouragency.com:1000')
+        let response = await axios.get('http://wefouragency.com:1000/api/getAdressList')
         return {
             response
         };
@@ -27,7 +27,7 @@ export const routsAPI  = {
         };
     },
     async addRoute(route: any) {
-        let response = await axios.post('http://wefouragency.com:1000/api/getActiveRoutes', {
+        let response = await axios.post('http://wefouragency.com:1000/api/addActiveRoute', {
             route: {...route}
           })
         return {
