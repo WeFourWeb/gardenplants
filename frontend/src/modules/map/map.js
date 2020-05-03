@@ -65,7 +65,7 @@ class Maps extends React.Component  {
     });
     
     
-        map.on('click' , 'places' , function(e){  
+        map.on('click' , 'places' , function(e){    
         var coordinates = e.features[0].geometry.coordinates.slice();
         var description = e.features[0].properties.description;
         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -84,10 +84,6 @@ class Maps extends React.Component  {
         // DrawLine( Arr[Arr.length-2],Arr[Arr.length-1]);        
       } 
       );
-     
-
-
-    
     document.getElementById("add_route").addEventListener('click', function() {
       let routesMap = Arr.map (el => (
         el[0].toString()+','+el[1].toString()+';'

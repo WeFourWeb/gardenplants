@@ -28,7 +28,8 @@ const Route:React.FC =(props: any) => {
         changeMode(false);
     }
 }
-let pointsArray = props.points.map( (order: any) => <div key={order._id} {...order} className={style.order}>Order 1231<EditTwoTone style={{marginLeft: '15px'}}/></div> )
+// Points in Route
+//let pointsArray = props.points.map( (order: any) => <div key={order._id} {...order} className={style.order}>Order 1231<EditTwoTone style={{marginLeft: '15px'}}/></div> )
   return(
     <div className={style.route_wrapper}>
         {
@@ -48,7 +49,7 @@ let pointsArray = props.points.map( (order: any) => <div key={order._id} {...ord
                     <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
                     </div>
                     <div className={style.orders_wrapper}>
-                        { pointsArray }
+                        {/* pointsArray */}
                     </div>
                 </div>
         }

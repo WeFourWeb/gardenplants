@@ -1,13 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import style from './new_route.module.css'
 import { Button } from 'antd'
 
 type NewRoute = {
     points: any,
-    addNewPoint: any
+    newRoute: any,
+    addNewRoute: any
 }
  
-const NewRoute:React.FC<NewRoute> =({points, addNewPoint}) => {     
+const NewRoute:React.FC<NewRoute> =({addNewRoute, points, newRoute}) => {    
+  console.log()
+  useEffect(()=>{
+
+  },[newRoute]) 
     let [ newRout, setNewRouteMod ] = useState(false);
     let changeRouteMod = () => {
       if(newRout == false){
@@ -34,7 +39,7 @@ const NewRoute:React.FC<NewRoute> =({points, addNewPoint}) => {
                         Add new point <Button size='small' type="primary" shape="circle">+</Button>    
                     </div>
                     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <Button type='primary' >Add route</Button>
+                        <Button disabled={(newRoute.coordinates.length !== 0) ? false : true} onClick={() => addNewRoute(newRoute)}type='primary' >Add route</Button>
                     </div>
                 </div>
           }

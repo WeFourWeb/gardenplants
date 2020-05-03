@@ -17,7 +17,6 @@ const { Header, Footer, Sider } = Layout;
 
 
 const MainPage = (props:any) => {
-  console.log(props)
   let [ collapsed, setEditMode ] = useState(false);
   let changeEditMode = () => {
       if(collapsed == false){

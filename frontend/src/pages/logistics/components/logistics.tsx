@@ -11,28 +11,27 @@ type LogisticProps = {
     getRoutes: any,
     getOrders: any,
     orders: any,
-    routes: any
+    routes: any,
+    setNewPointInRoute: any,
+    newRoute: any,
+    addNewRoute: any
+    
 }
 
-const Logistics: React.FC<LogisticProps> = ({getOrders, getRoutes, routes, orders}, ...props) => {
-    let [points, editPoints] = useState([])
-    
+const Logistics: React.FC<LogisticProps> = ({addNewRoute, newRoute, setNewPointInRoute, getOrders, getRoutes, routes, orders}, ...props) => {
 
-    useEffect(() => {
-        if(points) {
-            console.log('Logistic local state is: ', points) 
-        }
+    useEffect(() => { 
         getOrders()
         getRoutes()
-    }, [points])   
+    }, [routes])   
     
-    const addNewPoint = (point: any) => {
-        editPoints(point)
+    const addNewPoint = (point: any) => {  
+        setNewPointInRoute(point) 
     }
     return (
         <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
             
-            <Routes routes={routes}/>
+            <Routes addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
            
            <div className={style.content}> 
            {

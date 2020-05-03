@@ -20,16 +20,19 @@ export const ordersApi  = {
 }
 
 export const routsAPI  = {
-    async getRouts() {
+    async getRoutes() {
         let response = await axios.get('http://wefouragency.com:1000/api/getActiveRoutes')
+        console.log(response)
         return {
             response
         };
     },
     async addRoute(route: any) {
+        
         let response = await axios.post('http://wefouragency.com:1000/api/addActiveRoute', {
             route: {...route}
           })
+          console.log(response)
         return {
             response
         };
