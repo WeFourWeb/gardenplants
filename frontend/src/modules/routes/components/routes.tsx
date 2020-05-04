@@ -9,10 +9,11 @@ const { Sider } = Layout;
 type RoutesProps = {
     routes: any,
     newRoute: any,
-    addNewRoute: any
+    addNewRoute: any,
+    setDeliveryName: any
 }
 
-const Routes: React.FC<RoutesProps> = ({addNewRoute,newRoute, routes}, ...props) => {
+const Routes: React.FC<RoutesProps> = ({setDeliveryName, addNewRoute,newRoute, routes}, ...props) => {
    
     let [ collapsed, setEditMode ] = useState(false);
     let changeEditMode = () => {
@@ -22,11 +23,14 @@ const Routes: React.FC<RoutesProps> = ({addNewRoute,newRoute, routes}, ...props)
           setEditMode(false);
       }
     }
+    let addDeliveryName = (props: any) => {
+        console.log('hi')
+    }
     let routesArray = routes.map( (route: any) => <Route key={route._id} {...route}/>)
     return (
         <Sider className={style.sider}collapsible  onCollapse={changeEditMode}>
                 {newRoute.coordinates.length !== 0 
-                    ? <NewRoute addNewRoute={addNewRoute} newRoute={newRoute}  /> 
+                    ? <NewRoute setDeliveryName={setDeliveryName} onSubmit={addDeliveryName}addNewRoute={addNewRoute} newRoute={newRoute}  /> 
                     : <h1/>   
                 }
                 { routesArray }

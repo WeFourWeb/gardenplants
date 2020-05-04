@@ -18,8 +18,9 @@ let initialstate = {
           },
     ],
     newRoute: { 
+                _id:[],
                 coordinates: [], 
-                driver: "Stive"
+                deliveryman: "Stive"
               },
     
 }
@@ -36,15 +37,25 @@ const routsReducer = (state=initialstate, action: any) => {
                 ...state,  
                 newRoute: {
                     ...state.newRoute,
-                    coordinates: [...state.newRoute.coordinates, action.point]
+                    coordinates: [...state.newRoute.coordinates, action.point.coordinates],
+                    _id: [...state.newRoute._id, action.point._id]
                 }
             }
+        }
+        case 'SET_DELIVERY_NAME': {
+            return {
+                ...state, newRoute: { 
+                    ...state.newRoute,
+                    deliveryman: action.name
+            }
+          }
         }
         case 'SET_EMPTY_NEW_ROUTE': {
             return {
                 ...state, newRoute:  { 
+                    _id: [],
                     coordinates: [], 
-                    driver: "Stive"
+                    deliveryman: ''
                   }
             }
         } 
@@ -55,6 +66,8 @@ const routsReducer = (state=initialstate, action: any) => {
 }
 
 const setRouts = (routes: any) => ({type: "SET_ROUTS", routes} )
+
+export const setDeliveryName = (name: any) => ({type: "SET_DELIVERY_NAME", name} )
 
 export const setNewPointInRoute = (point: any) => ({type: 'SET_NEW_POINT_IN_ROUTE', point})
        const setEmptyNewRoute = () => ({type: 'SET_EMPTY_NEW_ROUTE'})
@@ -71,13 +84,14 @@ export const getRoutes = (routs: any) => async (dispatch: any) => {
 
 export const addNewRoute = (route:any) => async (dispatch: any) => {
     console.log(route)
-    let response: any = await routsAPI.addRoute(route)
     await dispatch(setEmptyNewRoute())
-    console.log(response)
-    if(response.response.status !== 200){
-        console.log(`some error with response ststus ${response.status}`)
-    }else{
+    // let response: any = await routsAPI.addRoute(route)
+    // await dispatch(setEmptyNewRoute())
+    // console.log(response)
+    // if(response.response.status !== 200){
+    //     console.log(`some error with response ststus ${response.status}`)
+    // }else{
         
-    }
+    // }
 }
 export default routsReducer

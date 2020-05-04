@@ -1,4 +1,4 @@
-import { addNewRoute, setNewPointInRoute } from './../../../redux/reducers/routesReducer';
+import { addNewRoute, setNewPointInRoute, setDeliveryName } from './../../../redux/reducers/routesReducer';
 import { getRoutes } from './../../../redux/reducers/routesReducer';
 import { default as Logistisc } from '../components/logistics'
 import { getOrders } from '../../../redux/reducers/ordersReducer'
@@ -12,4 +12,4 @@ let mapStateToProps = (state: any) =>({
     newRoute: fetchNewRoute(state)
 })
 
-export default connect(mapStateToProps, {getOrders, getRoutes, addNewRoute, setNewPointInRoute })(Logistisc)
+export default connect(mapStateToProps, {getOrders, getRoutes, addNewRoute, setNewPointInRoute, setDeliveryName })(Logistisc)
