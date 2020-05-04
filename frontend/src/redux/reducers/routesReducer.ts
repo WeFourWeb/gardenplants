@@ -69,7 +69,7 @@ export const getRoutes = () => async (dispatch: any) => {
    if(response.response.status !== 200){
        console.log(`some error with response ststus ${response.status}`)
    }else{
-       await dispatch(setRouts(response.response.data))
+       dispatch(setRouts(response.response.data))
    }
 }
 

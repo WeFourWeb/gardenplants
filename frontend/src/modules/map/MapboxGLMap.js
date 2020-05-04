@@ -9,8 +9,6 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
   useEffect(() => {
-    let routes = routes
-    if (typeof routes !== undefined) console.log(DrawLine(routes[0]))
     mapboxgl.accessToken='pk.eyJ1IjoiaWxpYXNuayIsImEiOiJjazk0ZjFsM3AwYWpvM21venRhMHVxZnV0In0.89Hh6UMwZgvHAkbohiT8JQ';
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
@@ -19,43 +17,9 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
         center: [-0.5851639, 51.4093628],
         zoom: 9
       })
-      map.on("load", () => {
+
+      map.on('load', () => {
         setMap(map)
-        // map.resize();
-        // map.on('mouseenter', 'places', function() {
-        //   map.getCanvas().style.cursor = 'pointer';
-        // })
-        routes.forEach((route, index) => { 
-          console.log(`route №${index}`)
-          console.log(route)
-          map.addSource(`route${route._id}`, {
-            'type': 'geojson',
-            'data': {
-              'type': 'Feature',
-              'properties': {},
-              'geometry': {
-                'type': 'LineString',
-                'coordinates': route.coordinates
-              } 
-            }
-          })
-          map.addLayer({
-            'id': `route${route._id}`,
-            'type': 'line',
-            'source': `route${route._id}`,
-            'layout': {
-              'line-join': 'round',
-              'line-cap': 'round'
-            },
-            'paint': {
-              'line-color': 'green',
-              'line-width': 3
-            }
-          })
-        })
-        // map.on('mouseleave', 'places', function() {
-        //   map.getCanvas().style.cursor = ''
-        // })
       })
   
       let markers = orders.map(adress => ({
@@ -81,20 +45,57 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
     map.on('click' , 'places' , function(e) { 
       var coordinates = e.features[0].geometry.coordinates.slice();
       var description = e.features[0].properties.description; 
-      
       Arr.push(e.features[0].geometry.coordinates) 
       let pop = new mapboxgl.Popup()
           .setLngLat(coordinates)
           .setHTML(description)
           .addTo(map); 
-      console.log(parseInt(description.slice(description.indexOf('№')+1, description.indexOf('<')))) 
       document.getElementById('get_point').addEventListener('click', function (el) {
         addNewPoint(coordinates, parseInt(description.slice(description.indexOf('№')+1, description.indexOf('<'))))
         pop.remove()
       })
     }) 
-  }
+    }
+
+    const updateMap = ({ setMap }) => {
+      map.on("click", () => {
+        setMap(map)
+          routes.forEach((route, index) => { 
+            console.log(`route №${index}`)
+            console.log(DrawLine(route.coordinates))
+            // .then((data) => {
+            //   console.log(data)
+            // })
+            map.addSource(`route${route._id}`, {
+              'type': 'geojson',
+              'data': {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                  'type': 'LineString',
+                  'coordinates': route.coordinates
+                } 
+              }
+            })
+            map.addLayer({
+              'id': `route${route._id}`,
+              'type': 'line',
+              'source': `route${route._id}`,
+              'layout': {
+                'line-join': 'round',
+                'line-cap': 'round'
+              },
+              'paint': {
+                'line-color': 'green',
+                'line-width': 3
+              }
+            })
+          })
+      })
+    }
+
   if (!map) initializeMap({ setMap, mapContainer })
+  else  updateMap({ setMap })
   }, [map])
   return <div className={style.map_container} ref={el => (mapContainer.current = el)}  />
 }

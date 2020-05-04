@@ -1,8 +1,8 @@
 import mapboxgl from 'mapbox-gl';
 mapboxgl.accessToken='pk.eyJ1IjoiaWxpYXNuayIsImEiOiJjazk0ZjFsM3AwYWpvM21venRhMHVxZnV0In0.89Hh6UMwZgvHAkbohiT8JQ';
-let coordinatesArr = []
-var DrawLine = function(route) {
-  
+let coordinatesArr
+function fetchLine (route) {
+  console.log(route)
   let routesMap = route.map(el => (
       el[0].toString()+','+el[1].toString()+';'
     )
@@ -16,11 +16,10 @@ var DrawLine = function(route) {
   })
   .then((data) => {
     coordinatesArr = data["trips"][0]["geometry"]["coordinates"]
-    // console.log(coordinatesArr)
-    // return coordinatesArr
+    return coordinatesArr
   })
-  // console.log(coordinatesArr)
-  return coordinatesArr
 }
 
-export default DrawLine
+export default fetchLine = fetchLine
+
+
