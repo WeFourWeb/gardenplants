@@ -5,6 +5,7 @@
 
 .sider {
     min-height: 100vh;
+    max-height: 100vh;
     background-color: white;
     overflow: auto;
 }
@@ -17,6 +18,3 @@
     padding: 15px 15px;
 }
 
-.new_route_title_c {
-    
-}

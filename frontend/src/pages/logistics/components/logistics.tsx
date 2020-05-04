@@ -16,23 +16,23 @@ type LogisticProps = {
     newRoute: any,
     addNewRoute: any,
     setDeliveryName: any,
-    
+    deleteRoute: any
 }
 
-const Logistics: React.FC<LogisticProps> = ({setDeliveryName, addNewRoute, newRoute, setNewPointInRoute, getOrders, getRoutes, routes, orders}, ...props) => {
+const Logistics: React.FC<LogisticProps> = ({setDeliveryName, deleteRoute, addNewRoute, newRoute, setNewPointInRoute, getOrders, getRoutes, routes, orders}, ...props) => {
 
     useEffect(() => { 
         getOrders()
         getRoutes()
-    }, [routes])   
+    }, [])   
     
-    const addNewPoint = (coordinates: any, _id: any) => {  
-        setNewPointInRoute({coordinates, _id}) 
+    const addNewPoint = (coordinates: any, ordersId: any) => {  
+        setNewPointInRoute({coordinates, ordersId}) 
     }
     return (
         <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
             
-            <Routes setDeliveryName={setDeliveryName} addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
+            <Routes setDeliveryName={setDeliveryName} deleteRoute={deleteRoute} addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
            
            <div className={style.content}> 
            {

@@ -6,21 +6,12 @@ import { routsAPI } from "../../API/api"
 // -0.5864810943603516, 51.48507098210092
 let initialstate = {
     routes: [
-        { 
-            _id: 1,
-            coordinates: [[-0.7022666931152344, 51.42404561602714], [-0.7403755187988281, 51.38903022234442]], 
-            driver: "Stive"
-          },
-          { 
-            _id: 12,
-            coordinates: [[-0.7392597198486328, 51.35404161431714], [-0.6226158142089844, 51.36031259607719]], 
-            driver: "Stive"
-          },
+        
     ],
     newRoute: { 
-                _id:[],
+                ordersId:[],
                 coordinates: [], 
-                deliveryman: "Stive"
+                deliveryman: ""
               },
     
 }
@@ -38,7 +29,7 @@ const routsReducer = (state=initialstate, action: any) => {
                 newRoute: {
                     ...state.newRoute,
                     coordinates: [...state.newRoute.coordinates, action.point.coordinates],
-                    _id: [...state.newRoute._id, action.point._id]
+                    ordersId: [...state.newRoute.ordersId, action.point.ordersId]
                 }
             }
         }
@@ -53,7 +44,7 @@ const routsReducer = (state=initialstate, action: any) => {
         case 'SET_EMPTY_NEW_ROUTE': {
             return {
                 ...state, newRoute:  { 
-                    _id: [],
+                    ordersId: [],
                     coordinates: [], 
                     deliveryman: ''
                   }
@@ -72,7 +63,7 @@ export const setDeliveryName = (name: any) => ({type: "SET_DELIVERY_NAME", name}
 export const setNewPointInRoute = (point: any) => ({type: 'SET_NEW_POINT_IN_ROUTE', point})
        const setEmptyNewRoute = () => ({type: 'SET_EMPTY_NEW_ROUTE'})
 
-export const getRoutes = (routs: any) => async (dispatch: any) => {
+export const getRoutes = () => async (dispatch: any) => {
    let response: any = await routsAPI.getRoutes()
   
    if(response.response.status !== 200){
@@ -83,15 +74,24 @@ export const getRoutes = (routs: any) => async (dispatch: any) => {
 }
 
 export const addNewRoute = (route:any) => async (dispatch: any) => {
-    console.log(route)
-    await dispatch(setEmptyNewRoute())
-    // let response: any = await routsAPI.addRoute(route)
-    // await dispatch(setEmptyNewRoute())
-    // console.log(response)
-    // if(response.response.status !== 200){
-    //     console.log(`some error with response ststus ${response.status}`)
-    // }else{
-        
-    // }
+    
+    let response: any = await routsAPI.addRoute(route)
+   
+    console.log(response)
+    if(response.response.status !== 200){
+        console.log(`some error with response ststus ${response.status}`)
+    }else{
+        await dispatch(setEmptyNewRoute())
+        await dispatch(getRoutes())
+    }
+}
+
+export const deleteRoute = (id: any) => async (dispatch: any) => {
+    let response: any = await routsAPI.deleteRoute(id)
+    if(response.response.status !== 200){
+        console.log(`some error with response ststus ${response.status}`)
+    }else{
+        await dispatch(getRoutes())
+    }
 }
 export default routsReducer

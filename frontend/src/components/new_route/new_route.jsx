@@ -10,13 +10,14 @@ const NewRoute =({setDeliveryName, addNewRoute, newRoute}, props) => {
 
   },[newRoute])   
  
-let newRouteItems = newRoute._id.map( (order) => <div key={order._id} {...order}>{`Order ID: ${order}`} </div>)
+let newRouteItems = newRoute.ordersId.map( (order) => <div key={order.ordersId} {...order}>{`Order ID: ${order}`} </div>)
 console.log(newRoute)
 
 let setAll = async (value) => {
   return (
-   await addNewRoute(newRoute),
-   await setDeliveryName(value)
+    await setDeliveryName(value),
+    await addNewRoute(newRoute)
+  
   )
 }
 // let doIt = () => {
@@ -30,7 +31,7 @@ let setAll = async (value) => {
       </div>
           
           <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start'}} className={style.add_new_route}>
-              Items in the rout: {newRouteItems}
+              Items in the route: {newRouteItems}
           </div>
           <Form>
             <Form.Item

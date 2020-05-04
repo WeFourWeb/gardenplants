@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import style from './route.module.css'
-import { EllipsisOutlined, UpOutlined, EditTwoTone } from '@ant-design/icons';
+import { EllipsisOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Dropdown, Menu } from 'antd';
 //import DropDownMenu from '../drop_down_menu/drop_down_menu';
 
@@ -20,6 +20,7 @@ const DropDownMenu = () => {
 
 
 const Route:React.FC =(props: any) => {   
+  
   const[rolled, changeMode]=useState(true)
   let changeEditMode = () => {
     if(rolled == false){
@@ -37,6 +38,7 @@ const Route:React.FC =(props: any) => {
             ?   <div onClick={changeEditMode} className={style.route}>
                     <div  className={style.route_header}>
                     route id 
+                    <DeleteOutlined onClick={() => (props.deleteRoute(props._id))}/>
                     <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
                     </div>  
                 </div>
@@ -47,6 +49,7 @@ const Route:React.FC =(props: any) => {
                     <div onClick={(() => {
                       return <div> Удалить </div>
                     })}>
+                      <DeleteOutlined onClick={() => (props.deleteRoute(props._id))}/>
                       <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
                     </div>
                     
