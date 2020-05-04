@@ -15,10 +15,6 @@ type RoutesProps = {
 const Routes: React.FC<RoutesProps> = ({addNewRoute,newRoute, routes}, ...props) => {
    
     let [ collapsed, setEditMode ] = useState(false);
-    let [points, editPoints] = useState([])
-    const addNewPoint = (point: any) => {
-        editPoints(point)
-    }
     let changeEditMode = () => {
       if(collapsed == false){
           setEditMode( false);
@@ -29,7 +25,10 @@ const Routes: React.FC<RoutesProps> = ({addNewRoute,newRoute, routes}, ...props)
     let routesArray = routes.map( (route: any) => <Route key={route._id} {...route}/>)
     return (
         <Sider className={style.sider}collapsible  onCollapse={changeEditMode}>
-                <NewRoute addNewRoute={addNewRoute} newRoute={newRoute} points={points} />
+                {newRoute.coordinates.length !== 0 
+                    ? <NewRoute addNewRoute={addNewRoute} newRoute={newRoute}  /> 
+                    : <h1/>   
+                }
                 { routesArray }
         </Sider> 
     )
