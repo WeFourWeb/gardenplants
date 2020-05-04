@@ -43,10 +43,13 @@ const Route:React.FC =(props: any) => {
             :   <div onClick={changeEditMode} className={style.route}>
                     <div  className={style.route_header}>
                     route id 
-                    <Dropdown overlay={DropDownMenu}>
-                    <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
-                        </Dropdown>
-                    <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
+                    
+                    <div onClick={(() => {
+                      return <div> Удалить </div>
+                    })}>
+                      <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
+                    </div>
+                    
                     </div>
                     <div className={style.orders_wrapper}>
                         {/* pointsArray */}

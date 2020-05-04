@@ -26,33 +26,36 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
       map.on("load", () => {
         setMap(map);
         map.resize();
-        map.addSource( 'routes',{
-          'type': 'geojson',
-          'data': {
-            'type': 'Feature',
-            'properties': {},
-            'geometry': {
-              'type': 'LineString',
-              'coordinates': routes
+
+       const startForEach= () => { routes.forEach(route => {
+          console.log(route._id, route.coordinates)
+          map.addSource( route._id,{
+            'type': 'geojson',
+            'data': {
+              'type': 'Feature',
+              'properties': {},
+              'geometry': {
+                'type': 'LineString',
+                'coordinates': route.coordinates
+              }
             }
           }
-        }
-        );
-        map.addLayer({
-          'id': "routes",
-          'type': 'line',
-          'source': "routes",
-          'layout': {
-            'line-join': 'round',
-            'line-cap': 'round'
-          },
-          'paint': {
-            'line-color': 'red',
-            'line-width': 3
-          }
-
-
-        })
+          )
+          map.addLayer({
+            'id': route._id,
+            'type': 'line',
+            'source': route._id,
+            'layout': {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            'paint': {
+              'line-color': 'red',
+              'line-width': 3
+            }
+          })
+        })}
+        startForEach()
       });
       let coords=[{"id":1,"lng":-0.7067573,"lat":51.3147712},{"id":2,"lng":-0.622613,"lat":51.36033},{"id":3,"lng":-0.739293,"lat":51.354024},{"id":4,"lng":-0.740415,"lat":51.389043},{"id":5,"lng":-0.70227,"lat":51.424035},{"id":6,"lng":-0.586515,"lat":51.485092},{"id":7,"lng":-0.612329,"lat":51.508643},{"id":8,"lng":-0.64295,"lat":51.514233},{"id":9,"lng":-0.485326,"lat":51.285948},{"id":10,"lng":-0.479931,"lat":51.292937},{"id":11,"lng":-0.49284,"lat":51.286972},{"id":12,"lng":-0.497368,"lat":51.286249}]
     let markers = coords.map (adress => (
