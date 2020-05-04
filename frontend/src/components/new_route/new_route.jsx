@@ -5,7 +5,7 @@ import { reduxForm } from 'redux-form'
 
 const { Search } = Input;
  
-const NewRoute =({setDeliveryName, addNewRoute, newRoute}, props) => { 
+const NewRoute =({setDriverName, addNewRoute, newRoute}, props) => { 
   useEffect(() => {
 
   },[newRoute])   
@@ -15,7 +15,7 @@ console.log(newRoute)
 
 let setAll = async (value) => {
   return (
-    await setDeliveryName(value),
+    await setDriverName(value),
     await addNewRoute(newRoute)
   
   )

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axios_instance = axios.create(
     {
-        baseURL: 'http://wefouragency.com:1002/api/',
+        baseURL: 'http://wefouragency.com:1000/api/',
         
         headers: {
             "Content-Type": 'application/json'
@@ -32,7 +32,7 @@ export const ordersApi  = {
     }
 }
 
-export const routsAPI  = {
+export const routesAPI  = {
     async getRoutes() {
         let response = await axios.get('http://wefouragency.com:1000/api/getActiveRoutes')
         console.log(response)

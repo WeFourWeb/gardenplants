@@ -15,11 +15,11 @@ type LogisticProps = {
     setNewPointInRoute: any,
     newRoute: any,
     addNewRoute: any,
-    setDeliveryName: any,
+    setDriverName: any,
     deleteRoute: any
 }
 
-const Logistics: React.FC<LogisticProps> = ({setDeliveryName, deleteRoute, addNewRoute, newRoute, setNewPointInRoute, getOrders, getRoutes, routes, orders}, ...props) => {
+const Logistics: React.FC<LogisticProps> = ({setDriverName, deleteRoute, addNewRoute, newRoute, setNewPointInRoute, getOrders, getRoutes, routes, orders}, ...props) => {
 
     useEffect(() => { 
         getOrders()
@@ -32,12 +32,12 @@ const Logistics: React.FC<LogisticProps> = ({setDeliveryName, deleteRoute, addNe
     return (
         <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
             
-            <Routes setDeliveryName={setDeliveryName} deleteRoute={deleteRoute} addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
+            <Routes setDriverName={setDriverName} deleteRoute={deleteRoute} addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
            
            <div className={style.content}> 
            {
                orders.length !== 0
-               ? <MapboxGLMap addNewPoint={addNewPoint} routes={routes} orders={orders}  />//<Maps addNewPoint={addNewPoint} routes={routes} orders={orders}  />
+               ? <MapboxGLMap addNewPoint={addNewPoint} routes={routes} orders={orders}  />
                : <LoadingOutlined />
            }
                 

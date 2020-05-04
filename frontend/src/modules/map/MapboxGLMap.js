@@ -17,7 +17,6 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
         center: [-0.5851639, 51.4093628],
         zoom: 9
       })
-
       map.on('load', () => {
         setMap(map)
       })
@@ -58,44 +57,38 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
     }
 
     const updateMap = ({ setMap }) => {
-      map.on("click", () => {
-        setMap(map)
-          routes.forEach((route, index) => { 
-            console.log(`route №${index}`)
-            console.log(DrawLine(route.coordinates))
-            // .then((data) => {
-            //   console.log(data)
-            // })
-            map.addSource(`route${route._id}`, {
-              'type': 'geojson',
-              'data': {
-                'type': 'Feature',
-                'properties': {},
-                'geometry': {
-                  'type': 'LineString',
-                  'coordinates': route.coordinates
-                } 
-              }
-            })
-            map.addLayer({
-              'id': `route${route._id}`,
-              'type': 'line',
-              'source': `route${route._id}`,
-              'layout': {
-                'line-join': 'round',
-                'line-cap': 'round'
-              },
-              'paint': {
-                'line-color': 'green',
-                'line-width': 3
-              }
-            })
+      setMap(map)
+      routes.forEach(route => { 
+        DrawLine(route.coordinates).then((res) => {
+          map.addSource(`route${route._id}`, {
+            'type': 'geojson',
+            'data': {
+              'type': 'Feature',
+              'properties': {},
+              'geometry': {
+                'type': 'LineString',
+                'coordinates': res
+              } 
+            }
           })
+          map.addLayer({
+            'id': `route${route._id}`,
+            'type': 'line',
+            'source': `route${route._id}`,
+            'layout': {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            'paint': {
+              'line-color': 'green',
+              'line-width': 3
+            }
+          })
+        })
       })
     }
-
   if (!map) initializeMap({ setMap, mapContainer })
-  else  updateMap({ setMap })
+  updateMap({ setMap })
   }, [map])
   return <div className={style.map_container} ref={el => (mapContainer.current = el)}  />
 }
