@@ -1,49 +1,26 @@
 import mapboxgl from 'mapbox-gl';
-
-const DrawLine = function(route, map) {
-    let coordinatesArr = []
-    let count = 0
-    fetch(`https://api.mapbox.com/optimized-trips/v1/mapbox/driving-traffic/${route}?geometries=geojson&overview=full&access_token=${mapboxgl.accessToken}`)
-      .then((response) => {
-        return response.json();
-      }
-      )
-      .then((data) => {
-        coordinatesArr=data["trips"][0]["geometry"]["coordinates"]
-        // console.log(coordinatesArr);
-      }
-      )
-      .then(()=> {
-        map.addSource(`source${count}`, {
-          'type': 'geojson',
-          'data': {
-            'type': 'Feature',
-            'properties': {},
-            'geometry': {
-              'type': 'LineString',
-              'coordinates': coordinatesArr
-            }
-          }
-        }
-        );
-        map.addLayer({
-          'id': `layer${count}`,
-          'type': 'line',
-          'source': `source${count}`,
-          'layout': {
-            'line-join': 'round',
-            'line-cap': 'round'
-          },
-          'paint': {
-            'line-color': '#888',
-            'line-width': 3
-          }
-        
-        
-        })
-    count++
-      }
-      )
-  }
+mapboxgl.accessToken='pk.eyJ1IjoiaWxpYXNuayIsImEiOiJjazk0ZjFsM3AwYWpvM21venRhMHVxZnV0In0.89Hh6UMwZgvHAkbohiT8JQ';
+let coordinatesArr = []
+var DrawLine = function(route) {
+  
+  let routesMap = route.map(el => (
+      el[0].toString()+','+el[1].toString()+';'
+    )
+  )
+  routesMap=routesMap.join('')
+  routesMap=routesMap.slice(0, routesMap.length-2)
+    
+  fetch(`https://api.mapbox.com/optimized-trips/v1/mapbox/driving-traffic/-0.5851639,51.4093628;${routesMap}?geometries=geojson&overview=full&access_token=${mapboxgl.accessToken}`)
+  .then((response) => {
+    return response.json()
+  })
+  .then((data) => {
+    coordinatesArr = data["trips"][0]["geometry"]["coordinates"]
+    // console.log(coordinatesArr)
+    // return coordinatesArr
+  })
+  // console.log(coordinatesArr)
+  return coordinatesArr
+}
 
 export default DrawLine
