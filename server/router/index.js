@@ -3,12 +3,6 @@ var db = require('../api/db')
 
 module.exports = (app) => {
 	//Получение списка адресов по активным заказам, конвертированных в координаты для карты
-	//{
-	//	orderId: string,
-	//	postcode: string,
-	//	lng: string,
-	//	lat: string
-	//}
 	app.get('/api/getAdressList', (req, res) => {
 		api.getAdresses.orders
 		.then((adressArr) => {
@@ -21,11 +15,9 @@ module.exports = (app) => {
 	//Добавление категории товара
 	app.post('/api/addProductType', (req, res) => {
 		db.connect(() => {
-			db.get().collection('productTypes').insertOne(req.body, (err, res) => {
-				if (err) return err
-			})
-			.then((result) => {
-				res.send(result)
+			db.get().collection('productTypes').insertOne(req.body, (err, result) => {
+				console.log(result.ops)
+				res.send(result.insertedId)
 				db.close()
 			})
 		})
@@ -33,11 +25,9 @@ module.exports = (app) => {
 	//Добавление товара
 	app.post('/api/addProduct', (req, res) => {
 		db.connect(() => {
-			db.get().collection('products').insertOne(req.body, (err, res) => {
-				if (err) return err
-			})
-			.then((result) => {
-				res.send(result)
+			db.get().collection('products').insertOne(req.body, (err, result) => {
+				console.log(result.ops)
+				res.send(result.insertedId)
 				db.close()
 			})
 		})
@@ -45,11 +35,9 @@ module.exports = (app) => {
 	//Сохранение маршрута в бд
 	app.post('/api/addActiveRoute', (req, res) => {
 		db.connect(() => {
-			db.get().collection('activeRoutes').insertOne(req.body, (err, res) => {
-				if (err) return err
-			})
-			.then((result) => {
-				res.send(result)
+			db.get().collection('activeRoutes').insertOne(req.body, (err, result) => {
+				console.log(result.ops)
+				res.send(result.insertedId)
 				db.close()
 			})
 		})
@@ -57,10 +45,7 @@ module.exports = (app) => {
 	//Удаление маршрута по routeId
 	app.get('/api/removeActiveRoute', (req, res) => {
 		db.connect(() => {
-			db.get().collection('activeRoutes').deleteOne({routeId: { $eq: req.params.routeId } }, (err, res) => {
-				if (err) return err
-			})
-			.then((result) => {
+			db.get().collection('activeRoutes').deleteOne({routeId: { $eq: req.params.routeId } }, (err, result) => {
 				res.send(result)
 				db.close()
 			})
@@ -79,11 +64,9 @@ module.exports = (app) => {
 	//Добавление пользователя
 	app.post('/api/addUser', (req, res) => {
 		db.connect(() => {
-			db.get().collection('users').insertOne(req.body, (err, res) => {
-				if (err) return err
-			})
-			.then((result) => {
-				res.send(result)
+			db.get().collection('users').insertOne(req.body, (err, result) => {
+				console.log(result.ops)
+				res.send(result.insertedId)
 				db.close()
 			})
 		})
@@ -92,8 +75,8 @@ module.exports = (app) => {
 	app.get('/api/getUsers', (req, res) => {
 		db.connect(() => {
 			db.get().collection('users').find({}).toArray()
-			.then((routes) => {
-				res.send(routes)
+			.then((users) => {
+				res.send(users)
 				db.close()
 			})
 		})

@@ -2,21 +2,22 @@ const config = require('../../config')
 
 const mongoClient = require('mongodb').MongoClient
 const mongoHost = config.mongoHost
-let mongodb
+let client, mongodb
 
 function connect(callback) {
   mongoClient.connect(mongoHost, { useUnifiedTopology: true },  (err, db) => {
 		if (err) {
 			console.log(`Error: ${err}`)
-		}
-		mongodb = db.db('gardenplants')
+    }   
+    mongodb = db
+		client = db.db('gardenplants')
 		console.log('connected')
     callback()
   })
 }
 
 function get() {
-  return mongodb
+    return client
 }
 
 function close() {
