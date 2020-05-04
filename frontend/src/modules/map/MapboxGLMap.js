@@ -26,10 +26,17 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
       map.on("load", () => {
         setMap(map);
         map.resize();
-
+        map.on('mouseenter', 'places', function() {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+       
+    
+        map.on('mouseleave', 'places', function() {
+          map.getCanvas().style.cursor = '';
+        });
        const startForEach= () => { routes.forEach(route => {
           console.log(route._id, route.coordinates)
-          map.addSource( route._id,{
+          map.addSource( `${route._id}`,{
             'type': 'geojson',
             'data': {
               'type': 'Feature',
@@ -42,9 +49,9 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
           }
           )
           map.addLayer({
-            'id': route._id,
+            'id': `${route._id}`,
             'type': 'line',
-            'source': route._id,
+            'source': `${route._id}`,
             'layout': {
               'line-join': 'round',
               'line-cap': 'round'
@@ -62,6 +69,11 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
       {
         'type': 'Feature',
         'properties': {
+        'description': 
+        `Order №${adress.id}
+        <br/>
+        
+        <button id="get_point">Add point to route</button>`,
         'icon': 'rocket'
         },
         'geometry': {
@@ -76,11 +88,19 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
     var Arr =[]
     Arr.push([-0.5851639 , 51.4093628])
 
-    map.on('click' , 'places' , function(e){  
-       addNewPoint(e.features[0].geometry.coordinates)
+    map.on('click' , 'places' , function(e){ 
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var description = e.features[0].properties.description; 
+      addNewPoint(e.features[0].geometry.coordinates)
       Arr.push(e.features[0].geometry.coordinates) 
-      new mapboxgl.Marker().setLngLat(e.features[0].geometry.coordinates).addTo(map);  
-      // DrawLine( Arr[Arr.length-2],Arr[Arr.length-1]);        
+      let pop = new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML(description)
+          .addTo(map); 
+      console.log(parseInt(description.slice(description.indexOf('№')+1, description.indexOf('<')))) 
+      document.getElementById('get_point').addEventListener('click', function (el) {
+        pop.remove();
+      })
     } 
     );  
 
