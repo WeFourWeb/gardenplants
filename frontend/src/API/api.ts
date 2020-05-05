@@ -35,7 +35,7 @@ export const ordersApi  = {
 export const routesAPI  = {
     async getRoutes() {
         let response = await axios.get('http://wefouragency.com:1000/api/getActiveRoutes')
-        console.log(response)
+        
         return {
             response
         };
@@ -45,7 +45,7 @@ export const routesAPI  = {
         let response = await axios_instance.post('addActiveRoute/', {
        ...route
           })
-          console.log(response)
+          
         return {
             response
         };

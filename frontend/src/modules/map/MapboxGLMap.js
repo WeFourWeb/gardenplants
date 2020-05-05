@@ -19,6 +19,36 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
       })
       map.on('load', () => {
         setMap(map)
+        routes.forEach(route => { 
+          DrawLine(route.coordinates)
+          .then((res) => {
+            console.log('paint route')
+            map.addSource(`route${route._id}`, {
+              'type': 'geojson',
+              'data': {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                  'type': 'LineString',
+                  'coordinates': res
+                } 
+              }
+            })
+            map.addLayer({
+              'id': `route${route._id}`,
+              'type': 'line',
+              'source': `route${route._id}`,
+              'layout': {
+                'line-join': 'round',
+                'line-cap': 'round'
+              },
+              'paint': {
+                'line-color': 'green',
+                'line-width': 3
+              }
+            })
+          })      
+        })
       })
   
       let markers = orders.map(adress => ({
@@ -55,41 +85,68 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
       })
     }) 
     }
-
+    
+    let findSource = (base, request, requestBase) => {
+      let newBase = base.splice(3, base.length - 2)
+      if (newBase.length > requestBase.length) {
+        requestBase.forEach(route => {
+          if (newBase.indexOf(`route${route._id}`) >= 0)
+            newBase = newBase.splice(newBase.indexOf(`route${route._id}`), 1)
+        })
+        return newBase[0]
+      } else {
+        if ((newBase.length < requestBase.length) && (newBase.indexOf(request) === -1)) {
+          return true
+        } else {
+          return false 
+        }
+      }
+    }
     const updateMap = ({ setMap }) => {
       setMap(map)
-      routes.forEach(route => { 
-        DrawLine(route.coordinates).then((res) => {
-          map.addSource(`route${route._id}`, {
-            'type': 'geojson',
-            'data': {
-              'type': 'Feature',
-              'properties': {},
-              'geometry': {
-                'type': 'LineString',
-                'coordinates': res
-              } 
-            }
-          })
-          map.addLayer({
-            'id': `route${route._id}`,
-            'type': 'line',
-            'source': `route${route._id}`,
-            'layout': {
-              'line-join': 'round',
-              'line-cap': 'round'
-            },
-            'paint': {
-              'line-color': 'green',
-              'line-width': 3
-            }
-          })
+      let sourcesNumber = Object.keys(map.style.sourceCaches).length - 3
+      if (sourcesNumber > routes.length) {
+        map.removeLayer(findSource(Object.keys(map.style.sourceCaches), `она тебя сожрет`, routes))
+        map.removeSource(findSource(Object.keys(map.style.sourceCaches), `она тебя сожрет`, routes))
+      } else {
+        routes.forEach(route => { 
+          DrawLine(route.coordinates)
+          .then((res) => {
+            if (findSource(Object.keys(map.style.sourceCaches), `route${route._id}`, routes) === true) {
+              map.addSource(`route${route._id}`, {
+                'type': 'geojson',
+                'data': {
+                  'type': 'Feature',
+                  'properties': {},
+                  'geometry': {
+                    'type': 'LineString',
+                    'coordinates': res
+                  } 
+                }
+              })
+              map.addLayer({
+                'id': `route${route._id}`,
+                'type': 'line',
+                'source': `route${route._id}`,
+                'layout': {
+                  'line-join': 'round',
+                  'line-cap': 'round'
+                },
+                'paint': {
+                  'line-color': 'green',
+                  'line-width': 3
+                }
+              })
+            } 
+          })      
         })
-      })
+      }
     }
   if (!map) initializeMap({ setMap, mapContainer })
-  updateMap({ setMap })
-  }, [map])
+  if (map) {
+    updateMap({ setMap })
+  }
+  }, [routes])
   return <div className={style.map_container} ref={el => (mapContainer.current = el)}  />
 }
 
