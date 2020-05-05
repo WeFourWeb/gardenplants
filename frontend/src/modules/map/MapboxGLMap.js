@@ -70,7 +70,14 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
     new mapboxgl.Marker().setLngLat([-0.5851639 , 51.4093628]).addTo(map);
     var Arr = []
     Arr.push([-0.5851639 , 51.4093628])
+    map.on('mouseenter', 'places', function() {
+      map.getCanvas().style.cursor = 'pointer';
+    });
 
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'places', function() {
+      map.getCanvas().style.cursor = '';
+    });
     map.on('click' , 'places' , function(e) { 
       var coordinates = e.features[0].geometry.coordinates.slice();
       var description = e.features[0].properties.description; 
