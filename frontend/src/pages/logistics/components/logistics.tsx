@@ -16,10 +16,11 @@ type LogisticProps = {
     newRoute: any,
     addNewRoute: any,
     setDriverName: any,
-    deleteRoute: any
+    deleteRoute: any,
+    setRouteDeliveringDate: any
 }
 
-const Logistics: React.FC<LogisticProps> = ({setDriverName, deleteRoute, addNewRoute, newRoute, setNewPointInRoute, getOrders, getRoutes, routes, orders}, ...props) => {
+const Logistics: React.FC<LogisticProps> = ({setRouteDeliveringDate, setDriverName, deleteRoute, addNewRoute, newRoute, setNewPointInRoute, getOrders, getRoutes, routes, orders}, ...props) => {
 
     useEffect(() => { 
         getOrders()
@@ -30,9 +31,9 @@ const Logistics: React.FC<LogisticProps> = ({setDriverName, deleteRoute, addNewR
         setNewPointInRoute({coordinates, ordersId}) 
     }
     return (
-        <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
+        <div >
             
-            <Routes setDriverName={setDriverName} deleteRoute={deleteRoute} addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
+            <Routes setRouteDeliveringDate={setRouteDeliveringDate} setDriverName={setDriverName} deleteRoute={deleteRoute} addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
            
            <div className={style.content}> 
            {

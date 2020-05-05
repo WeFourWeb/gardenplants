@@ -4,10 +4,15 @@
 }
 
 .sider {
-    min-height: 100vh;
+   
     max-height: 100vh;
     background-color: white;
+    width: 300px;
+    z-index: 1;
     overflow: auto;
+    position: absolute;
+    margin: 10px 10px;
+    border-radius: 5px;
 }
 
 .add_new_route {
@@ -18,3 +23,8 @@
     padding: 15px 15px;
 }
 
+.sider_wrapper {
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+}

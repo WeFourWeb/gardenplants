@@ -4,13 +4,13 @@
     align-items: center;
     background-color: white;
     padding: 15px 15px;
+    padding-top: 5px;
 }
 
 .new_route {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid rgb(177, 21, 21);
 }
 
 .new_route_title {
@@ -21,10 +21,17 @@
 }
 
 .new_route_title_c {
-    padding: 15px 15px 0 15px;
+    
+    padding: 15px 15px 5px 15px;
     display: flex;
     align-items: center;
     color: black;
+    border-bottom: 1px solid rgb(238, 238, 238)
+}
+
+.add_route_button {
+    margin-top: 15px;
+    width: 100%;
 }
 
 

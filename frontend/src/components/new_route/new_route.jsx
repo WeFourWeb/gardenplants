@@ -1,58 +1,46 @@
 import React, {useState, useEffect} from 'react'
 import style from './new_route.module.css'
-import { Button, Input, Form } from 'antd'
+import { Button, Input, Form, Dropdown, DatePicker } from 'antd'
 import { reduxForm } from 'redux-form'
+import DropDownMenu from '../drop_down_menu/drop_down_menu'
+import { CarTwoTone } from '@ant-design/icons';
+
 
 const { Search } = Input;
  
-const NewRoute =({setDriverName, addNewRoute, newRoute}, props) => { 
+const NewRoute =({setDriverName, addNewRoute, newRoute, setRouteDeliveringDate}, props) => { 
   useEffect(() => {
 
   },[newRoute])   
  
-let newRouteItems = newRoute.ordersId.map( (order) => <div key={order.ordersId} {...order}>{`Order ID: ${order}`} </div>)
+let newRouteItems = newRoute.ordersId.map( (order) => <div style={{paddingLeft: '15px'}}key={order.ordersId} {...order}>{`id: ${order}`} </div>)
 console.log(newRoute)
 
-let setAll = async (value) => {
-  return (
-    await setDriverName(value),
-    await addNewRoute(newRoute)
-  
-  )
+let onDateChange = (date, dateString)=> {
+  setRouteDeliveringDate(dateString);
 }
-// let doIt = () => {
-//   props.handleSubmit()
-//   props.reset()
-// }
+
   return(
-    <div>
+    <div style={{borderBottom: "1px solid rgb(238, 238, 238)"}}>
       <div className={style.new_route_title_c}>
           New route
-      </div>
-          
+      </div>    
           <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start'}} className={style.add_new_route}>
-              Items in the route: {newRouteItems}
+              Orders in the route: {newRouteItems}
+              <Dropdown overlay={<DropDownMenu setDriverName={setDriverName}/>}>
+                <div style={{marginBottom: '10px', marginTop: '5px'}}className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                  {newRoute.driver.length == 0 ? <a> <CarTwoTone style={{marginRight: '5px'}}/>Choose driver</a> : <div> <CarTwoTone style={{marginRight: '5px'}}/> <a>{newRoute.driver}</a></div> }
+                </div>
+              </Dropdown>
+              <DatePicker style={{width:'100%'}} onChange={  onDateChange } />
+              <Button 
+                className={style.add_route_button}
+                htmlType="submit" 
+                type='primary'  
+                onClick={() => addNewRoute(newRoute)}
+                disabled={(newRoute.coordinates.length !== 0 && newRoute.driver !== '' && newRoute.deliveringDate !== '') ? false : true}
+              >Add route</Button>
           </div>
-          <Form>
-            <Form.Item
-            rules={[
-              {
-                
-                required: true,
-                message: 'Please confirm your password!',
-              }
-            ]}>
-            <Search
-            placeholder="delivery name"
-            enterButton="Add"
-            size="small"
-            style={{width: '85%', margin: "0 15px"}}
-            disabled={(newRoute.coordinates.length !== 0) ? false : true} 
-            onSearch={value => (setAll(value))}
-            
-          />
-            </Form.Item>
-          </Form>
           
           
           {/* <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>

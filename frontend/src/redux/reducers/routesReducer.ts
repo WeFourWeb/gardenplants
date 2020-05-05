@@ -9,7 +9,8 @@ let initialstate = {
   newRoute: { 
     ordersId:[],
     coordinates: [], 
-    driver: ""
+    driver: '',
+    deliveringDate: ''
   }
 }
 
@@ -30,6 +31,16 @@ const routesReducer = (state = initialstate, action: any) => {
         	ordersId: [...state.newRoute.ordersId, action.point.ordersId]
       	}
     	}
+    }
+    case 'SET_ROUTE_DELIVERING_DATE': { 
+      debugger
+      return {
+        ...state,  
+        newRoute: {
+        	...state.newRoute,
+        	deliveringDate: action.date
+      	}
+    	}
   	}
     case 'SET_DRIVER_NAME': {
       return {
@@ -46,7 +57,8 @@ const routesReducer = (state = initialstate, action: any) => {
 				newRoute: { 
           ordersId: [],
           coordinates: [], 
-					driver: ''
+          driver: '',
+          deliveringDate: ''
         }
       }
     } 
@@ -57,15 +69,14 @@ const routesReducer = (state = initialstate, action: any) => {
 }
 
 const setRoutes = (routes: any) => ({type: "SET_ROUTES", routes} )
+const setEmptyNewRoute = () => ({type: 'SET_EMPTY_NEW_ROUTE'})
 
 export const setDriverName = (name: any) => ({type: "SET_DRIVER_NAME", name} )
-
 export const setNewPointInRoute = (point: any) => ({type: 'SET_NEW_POINT_IN_ROUTE', point})
-const setEmptyNewRoute = () => ({type: 'SET_EMPTY_NEW_ROUTE'})
+export const setRouteDeliveringDate = (date: any) => ({type: 'SET_ROUTE_DELIVERING_DATE', date})
 
 export const getRoutes = () => async (dispatch: any) => {
   let response: any = await routesAPI.getRoutes()
-  
   if (response.response.status !== 200) {
     console.log(`some error with response status ${response.status}`)
 	}
@@ -75,13 +86,12 @@ export const getRoutes = () => async (dispatch: any) => {
 }
 
 export const addNewRoute = (route:any) => async (dispatch: any) => {
-    
+    await dispatch(setEmptyNewRoute())
     let response: any = await routesAPI.addRoute(route)
     console.log(response)
     if (response.response.status !== 200) {
       console.log(`some error with response ststus ${response.status}`)
     } else {
-      await dispatch(setEmptyNewRoute())
       await dispatch(getRoutes())
     }
 }

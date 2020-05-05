@@ -11,34 +11,30 @@ type RoutesProps = {
     newRoute: any,
     addNewRoute: any,
     setDriverName: any,
-    deleteRoute: any
+    deleteRoute: any,
+    setRouteDeliveringDate: any,
 }
 
-const Routes: React.FC<RoutesProps> = ({setDriverName, deleteRoute, addNewRoute,newRoute, routes}, ...props) => {
-   
-    let [ collapsed, setEditMode ] = useState(false);
-    let changeEditMode = () => {
-      if(collapsed == false){
-          setEditMode( false);
-      } else {
-          setEditMode(false);
-      }
-    }
+const Routes: React.FC<RoutesProps> = ({setRouteDeliveringDate, setDriverName, deleteRoute, addNewRoute,newRoute, routes}, ...props) => {
+    
     let addDeliveryName = (props: any) => {
         console.log('hi')
     }
     let routesArray = routes.map( (route: any) => <Route deleteRoute ={deleteRoute} key={route._id} {...route}/>)
     return (
-        <Sider className={style.sider}collapsible  onCollapse={changeEditMode}>
+        <div className={style.sider_wrapper}>
+            <div className={style.sider}>
                 {newRoute.coordinates.length !== 0 
-                    ? <NewRoute setDriverName={setDriverName} onSubmit={addDeliveryName}addNewRoute={addNewRoute} newRoute={newRoute}  /> 
-                    : <h1/>   
+                    ? <NewRoute setRouteDeliveringDate={setRouteDeliveringDate} setDriverName={setDriverName} onSubmit={addDeliveryName}addNewRoute={addNewRoute} newRoute={newRoute}  /> 
+                    : undefined   
                 }
                 <div className={style.routes_array}>
                 { routesArray }
                 </div>
                 
-        </Sider> 
+        </div> 
+        </div>
+        
     )
 }
 

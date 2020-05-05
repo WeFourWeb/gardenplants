@@ -1,25 +1,16 @@
 import React, { useState } from 'react'
 import style from './route.module.css'
-import { EllipsisOutlined, DeleteOutlined } from '@ant-design/icons';
-import { Dropdown, Menu } from 'antd';
+import { EllipsisOutlined, DeleteOutlined, ExclamationCircleOutlined, CarTwoTone } from '@ant-design/icons';
+import { Dropdown, Menu, Modal } from 'antd';
 //import DropDownMenu from '../drop_down_menu/drop_down_menu';
 
-const DropDownMenu = () => {     
-    return(
-      <div>
-      <Menu>
-      <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-          delete
-        </a>
-      </Menu.Item>
-    </Menu>
-      </div>
-    )
-    }
+const { confirm } = Modal;
+
+ 
 
 
 const Route:React.FC =(props: any) => {   
+  console.log(props)
   
   const[rolled, changeMode]=useState(true)
   let changeEditMode = () => {
@@ -29,35 +20,45 @@ const Route:React.FC =(props: any) => {
         changeMode(false);
     }
 }
+
+let showConfirm = () => {
+  confirm({
+    title: 'Do you want to delete these route?',
+    icon: <ExclamationCircleOutlined />,
+    content: `Route ${props._id} will be deleted`,
+    onOk() {
+        props.deleteRoute(props._id) 
+    },
+    onCancel() {}
+  });
+}
 // Points in Route
-//let pointsArray = props.points.map( (order: any) => <div key={order._id} {...order} className={style.order}>Order 1231<EditTwoTone style={{marginLeft: '15px'}}/></div> )
+let pointsArray = props.ordersId.map( (order: any) => <div key={order} {...order} style={{marginLeft: '10px'}}>id: {order}</div> )
   return(
     <div className={style.route_wrapper}>
         {
-            rolled
-            ?   <div onClick={changeEditMode} className={style.route}>
-                    <div  className={style.route_header}>
-                    route id 
-                    <DeleteOutlined onClick={() => (props.deleteRoute(props._id))}/>
-                    <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
-                    </div>  
-                </div>
-            :   <div onClick={changeEditMode} className={style.route}>
-                    <div  className={style.route_header}>
-                    route id 
+          rolled
+          ?   <div onClick={changeEditMode} className={style.route}>
+                  <div  className={style.route_header}>
+                  <div style={{color: 'black'}}>Route id: </div> {props._id}
+                  
+                  <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
+                  </div>  
+              </div>
+          :   <div onClick={changeEditMode} className={style.route}>
+                  <div className={style.route_header}>
+                    <div style={{color: 'black'}}>Route id: </div> {props._id}
+                      <DeleteOutlined onClick={showConfirm}/>
+                    </div>
+                  <div >
+                    <h5>Orders in the route</h5>
+                  { pointsArray}
+                  <div>Delivering date {props.deliveringDate}</div>
+                  <div> <CarTwoTone style={{marginRight: '5px'}}/> <a>{props.driver}</a></div>
                     
-                    <div onClick={(() => {
-                      return <div> Удалить </div>
-                    })}>
-                      <DeleteOutlined onClick={() => (props.deleteRoute(props._id))}/>
-                      <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
-                    </div>
-                    
-                    </div>
-                    <div className={style.orders_wrapper}>
-                        {/* pointsArray */}
-                    </div>
-                </div>
+                      
+                  </div>
+              </div>
         }
     </div>
   )
