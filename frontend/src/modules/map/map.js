@@ -6,6 +6,7 @@ import style from './map.module.css'
 import DrawMarkers from './utils/DrawMarkers'
 import DrawLine from './utils/DrawLine';
 
+
 mapboxgl.accessToken='pk.eyJ1IjoiaWxpYXNuayIsImEiOiJjazk0ZjFsM3AwYWpvM21venRhMHVxZnV0In0.89Hh6UMwZgvHAkbohiT8JQ';
 
 class Maps extends React.Component  {
@@ -20,7 +21,9 @@ class Maps extends React.Component  {
 
   componentDidMount() {
 
+
     // console.log(this.props)
+
 
     var map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -30,6 +33,7 @@ class Maps extends React.Component  {
     });
 
     let coords=this.props.orders
+
     let markers = coords.map (adress => (
       {
         'type': 'Feature',
@@ -48,6 +52,7 @@ class Maps extends React.Component  {
         }
       }
       )
+
     )
     DrawMarkers(map, markers);
     new mapboxgl.Marker().setLngLat([-0.5851639 , 51.4093628]).addTo(map);
@@ -111,6 +116,7 @@ class Maps extends React.Component  {
       </div>
     )
   }
+
 }
 export default Maps;
 //ReactDOM.render(<Maps/>, document.getElementById('root'))

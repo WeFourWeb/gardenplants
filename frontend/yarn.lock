@@ -10,6 +10,7 @@
     tinycolor2 "^1.4.1"
 
 "@ant-design/icons-svg@^4.0.0":
+<<<<<<< HEAD
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@ant-design/icons-svg/-/icons-svg-4.1.0.tgz#480b025f4b20ef7fe8f47d4a4846e4fee84ea06c"
   integrity sha512-Fi03PfuUqRs76aI3UWYpP864lkrfPo0hluwGqh7NJdLhvH4iRDc3jbJqZIvRDLHKbXrvAfPPV3+zjUccfFvWOQ==
@@ -938,6 +939,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+<<<<<<< HEAD
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.5.5":
   version "7.9.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
@@ -946,6 +948,9 @@
     regenerator-runtime "^0.13.4"
 
 "@babel/runtime@^7.5.1", "@babel/runtime@^7.7.4":
+=======
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.4":
+>>>>>>> master
   version "7.9.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
   integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
@@ -1406,6 +1411,7 @@
   resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-7.2.1.tgz#2ad4e844175a3738cb9e7064be5ea070b8863a1c"
   integrity sha512-oZ0Ib5I4Z2pUEcoo95cT1cr6slco9WY7yiPpG+RGNkj8YcYgJnM7pXmYmorNOReh8MIGcKSqXyeGjxnr8YiZbA==
 
+<<<<<<< HEAD
 "@turf/bbox@4.7.3":
   version "4.7.3"
   resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-4.7.3.tgz#e3ad4f10a7e9b41b522880d33083198199059067"
@@ -1423,6 +1429,8 @@
   resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-4.7.4.tgz#6de2f1e9890b8f64b669e4b47c09b20893063977"
   integrity sha1-beLx6YkLj2S2aeS0fAmyCJMGOXc=
 
+=======
+>>>>>>> master
 "@types/antd@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/antd/-/antd-1.0.0.tgz#f04e2a84efd9ea937366cd3dfbada5d3c949471d"
@@ -1606,18 +1614,30 @@
     redux "^4.0.0"
 
 "@types/react-router-dom@^5.1.4":
+<<<<<<< HEAD
   version "5.1.5"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.1.5.tgz#7c334a2ea785dbad2b2dcdd83d2cf3d9973da090"
   integrity sha512-ArBM4B1g3BWLGbaGvwBGO75GNFbLDUthrDojV2vHLih/Tq8M+tgvY1DSwkuNrPSwdp/GUL93WSEpTZs8nVyJLw==
+=======
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.1.4.tgz#8d3e0306df74af301cc896309e7d4758f1a4bf71"
+  integrity sha512-LO0z5qqSfWdYtCNsRm8/OMnnkv52hwADJKrAfpKIyfHclORllcgAMGypEA7ajHm38+jOonKLx8nPygNAAZGxtg==
+>>>>>>> master
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
     "@types/react-router" "*"
 
 "@types/react-router@*":
+<<<<<<< HEAD
   version "5.1.7"
   resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-5.1.7.tgz#e9d12ed7dcfc79187e4d36667745b69a5aa11556"
   integrity sha512-2ouP76VQafKjtuc0ShpwUebhHwJo0G6rhahW9Pb8au3tQTjYXd2jta4wv6U2tGLR/I42yuG00+UXjNYY0dTzbg==
+=======
+  version "5.1.5"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-5.1.5.tgz#7b2f9b7cc3d350e92664c4e38c0ef529286fe628"
+  integrity sha512-RZPdCtZympi6X7EkGyaU7ISiAujDYTWgqMF9owE3P6efITw27IWQykcti0BvA5h4Mu1LLl5rxrpO3r8kHyUZ/Q==
+>>>>>>> master
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
@@ -2061,11 +2081,19 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
     color-convert "^2.0.1"
 
 antd@*:
+<<<<<<< HEAD
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/antd/-/antd-4.2.0.tgz#1b6c9cb1d534b33e83a24052d9a7ccbaba19d138"
   integrity sha512-QEVhf2ESoBGD4Ef5UHVqHtKiiGEARQZuYLx+qcHbfZf3bLwsRHABgArIK0xsJyyoIts0dgwEBl5d8iI1+TVaVg==
   dependencies:
     "@ant-design/icons" "^4.1.0"
+=======
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-4.1.3.tgz#c5fd6e4eb3d335c4bb27d903ee2306b9cbeb28ef"
+  integrity sha512-gVAc+xsDQY07REfu7oy/IXCbFm3VtxwaUy+BNI3lNyzk8rx0XS/7Yuf6q+fZwVgQiVRUUamxkGCzwV1oFFBkdw==
+  dependencies:
+    "@ant-design/icons" "^4.0.0"
+>>>>>>> master
     "@ant-design/react-slick" "~0.25.5"
     array-tree-filter "^2.1.0"
     classnames "~2.2.6"
@@ -2076,34 +2104,55 @@ antd@*:
     omit.js "^1.0.2"
     prop-types "^15.7.2"
     raf "^3.4.1"
+<<<<<<< HEAD
     rc-animate "~2.11.0"
+=======
+    rc-animate "~2.10.2"
+>>>>>>> master
     rc-cascader "~1.0.0"
     rc-checkbox "~2.2.0"
     rc-collapse "~1.11.3"
     rc-dialog "~7.6.0"
     rc-drawer "~3.1.1"
     rc-dropdown "~3.0.0"
+<<<<<<< HEAD
     rc-field-form "~1.2.0"
     rc-input-number "~4.6.1"
+=======
+    rc-field-form "~1.1.0"
+    rc-input-number "~4.5.4"
+>>>>>>> master
     rc-mentions "~1.1.0"
     rc-menu "~8.0.1"
     rc-notification "~4.0.0"
     rc-pagination "~2.2.0"
     rc-picker "~1.4.0"
     rc-progress "~2.5.0"
+<<<<<<< HEAD
     rc-rate "~2.6.0"
+=======
+    rc-rate "~2.5.1"
+>>>>>>> master
     rc-resize-observer "^0.2.0"
     rc-select "~10.2.0"
     rc-slider "~9.2.3"
     rc-steps "~3.5.0"
     rc-switch "~1.9.0"
+<<<<<<< HEAD
     rc-table "~7.5.2"
+=======
+    rc-table "~7.4.2"
+>>>>>>> master
     rc-tabs "~10.1.1"
     rc-tooltip "~4.0.2"
     rc-tree "~3.1.0"
     rc-tree-select "~3.1.0"
     rc-trigger "~4.0.0"
+<<<<<<< HEAD
     rc-upload "~3.0.4"
+=======
+    rc-upload "~3.0.0"
+>>>>>>> master
     rc-util "^4.20.0"
     rc-virtual-list "^1.1.0"
     resize-observer-polyfill "^1.5.1"
@@ -7237,9 +7286,15 @@ mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@~0.5.1:
     minimist "^1.2.5"
 
 moment@^2.24.0:
+<<<<<<< HEAD
   version "2.25.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.25.2.tgz#0f521c1c99322cc55dee08678225fb4e3b4393ca"
   integrity sha512-2BZ14aoZMfyeTmjPi2LHdPKLvb6v4uz8QruMFzHTWd1Rl98p3TWLK6GsRFqQoJOKDZmVetzYO1iU6u1QgGJelQ==
+=======
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
+>>>>>>> master
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -8959,11 +9014,14 @@ querystringify@^2.1.1:
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
 
+<<<<<<< HEAD
 quickselect@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/quickselect/-/quickselect-2.0.0.tgz#f19680a486a5eefb581303e023e98faaf25dd018"
   integrity sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==
 
+=======
+>>>>>>> master
 raf@^3.4.0, raf@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
@@ -9011,10 +9069,17 @@ rc-align@^3.0.0-rc.0:
     rc-util "^4.12.0"
     resize-observer-polyfill "^1.5.1"
 
+<<<<<<< HEAD
 rc-animate@2.x, rc-animate@^2.10.0, rc-animate@^2.10.1, rc-animate@^2.10.2, rc-animate@^2.9.2, rc-animate@~2.11.0:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/rc-animate/-/rc-animate-2.11.1.tgz#2666eeb6f1f2a495a13b2af09e236712278fdb2c"
   integrity sha512-1NyuCGFJG/0Y+9RKh5y/i/AalUCA51opyyS/jO2seELpgymZm2u9QV3xwODwEuzkmeQ1BDPxMLmYLcTJedPlkQ==
+=======
+rc-animate@2.x, rc-animate@^2.10.0, rc-animate@^2.10.1, rc-animate@^2.10.2, rc-animate@^2.9.2, rc-animate@~2.10.2:
+  version "2.10.3"
+  resolved "https://registry.yarnpkg.com/rc-animate/-/rc-animate-2.10.3.tgz#163d5e29281a4ff82d53ee7918eeeac856b756f9"
+  integrity sha512-A9qQ5Y8BLlM7EhuCO3fWb/dChndlbWtY/P5QvPqBU7h4r5Q2QsvsbpTGgdYZATRDZbTRnJXXfVk9UtlyS7MBLg==
+>>>>>>> master
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.6"
@@ -9082,6 +9147,7 @@ rc-dropdown@~3.0.0:
     classnames "^2.2.6"
     rc-trigger "^4.0.0"
 
+<<<<<<< HEAD
 rc-field-form@~1.2.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/rc-field-form/-/rc-field-form-1.2.2.tgz#186ca18bb9b8df7eb4118d938374b52cf5890fd6"
@@ -9090,6 +9156,17 @@ rc-field-form@~1.2.0:
     "@babel/runtime" "^7.8.4"
     async-validator "^3.0.3"
     rc-util "^4.20.3"
+=======
+rc-field-form@~1.1.0:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/rc-field-form/-/rc-field-form-1.1.3.tgz#82512179f9aa2d1421758b499ea4a4f13292821c"
+  integrity sha512-m7SUNNaum4pHrUj5MGnymEk3SRitMUZBhnMS0wqWrcL6XqvdTAG5Yz5HjukA6BryaS6nyQOgUVBXMxxNN/XsTQ==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    async-validator "^3.0.3"
+    rc-util "^4.17.0"
+    warning "^4.0.3"
+>>>>>>> master
 
 rc-hammerjs@~0.6.0:
   version "0.6.9"
@@ -9100,6 +9177,7 @@ rc-hammerjs@~0.6.0:
     hammerjs "^2.0.8"
     prop-types "^15.5.9"
 
+<<<<<<< HEAD
 rc-input-number@~4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/rc-input-number/-/rc-input-number-4.6.1.tgz#2216d644c78857cc18411f0d3b6c14dba9a0ce7f"
@@ -9108,6 +9186,18 @@ rc-input-number@~4.6.1:
     babel-runtime "6.x"
     classnames "^2.2.0"
     rc-util "^4.5.1"
+=======
+rc-input-number@~4.5.4:
+  version "4.5.6"
+  resolved "https://registry.yarnpkg.com/rc-input-number/-/rc-input-number-4.5.6.tgz#0d52762b0ac39432256e2c6c5c836102f9797c46"
+  integrity sha512-AXbL4gtQ1mSQnu6v/JtMv3UbGRCzLvQznmf0a7U/SAtZ8+dCEAqD4JpJhkjv73Wog53eRYhw4l7ApdXflc9ymg==
+  dependencies:
+    babel-runtime "6.x"
+    classnames "^2.2.0"
+    prop-types "^15.5.7"
+    rc-util "^4.5.1"
+    rmc-feedback "^2.0.0"
+>>>>>>> master
 
 rc-mentions@~1.1.0:
   version "1.1.0"
@@ -9150,9 +9240,15 @@ rc-pagination@~2.2.0:
     classnames "^2.2.1"
 
 rc-picker@~1.4.0:
+<<<<<<< HEAD
   version "1.4.11"
   resolved "https://registry.yarnpkg.com/rc-picker/-/rc-picker-1.4.11.tgz#907d4ac3f8cf9e26129ad525e97f7b901fb3b92c"
   integrity sha512-4JmeV1jBg7VGxmGhgawRKCYQoigzj0Vvk9REKSFErPRXH/soTuB4FauRi/mS+ZClnkJBFU9Wh8Mq2UfF6CwgKA==
+=======
+  version "1.4.8"
+  resolved "https://registry.yarnpkg.com/rc-picker/-/rc-picker-1.4.8.tgz#f5915e45f8573d6016d09f30e9c58d1355c22787"
+  integrity sha512-FZ4XnpYBxn4wSzsbnMHK0dqbxkRD1zXE6DNGlevrBnsD7nOrzGeDw67McW4tBR5RjVeGXS1Fzf+Y+glpYWJmkw==
+>>>>>>> master
   dependencies:
     classnames "^2.2.1"
     moment "^2.24.0"
@@ -9161,13 +9257,20 @@ rc-picker@~1.4.0:
     shallowequal "^1.1.0"
 
 rc-progress@~2.5.0:
+<<<<<<< HEAD
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/rc-progress/-/rc-progress-2.5.3.tgz#00f01b95bdbe1856d3a5f82242051902e8b7a8e7"
   integrity sha512-K2fa4CnqGehLZoMrdmBeZ86ONSTVcdk5FlqetbwJ3R/+42XfqhwQVOjWp2MH4P7XSQOMAGcNOy1SFfCP3415sg==
+=======
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/rc-progress/-/rc-progress-2.5.2.tgz#ab01ba4e5d2fa36fc9f6f058b10b720e7315560c"
+  integrity sha512-ajI+MJkbBz9zYDuE9GQsY5gsyqPF7HFioZEDZ9Fmc+ebNZoiSeSJsTJImPFCg0dW/5WiRGUy2F69SX1aPtSJgA==
+>>>>>>> master
   dependencies:
     babel-runtime "6.x"
     prop-types "^15.5.8"
 
+<<<<<<< HEAD
 rc-rate@~2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/rc-rate/-/rc-rate-2.6.0.tgz#3990f1b0c7f0da91465c12af3612c03dd836703d"
@@ -9175,6 +9278,17 @@ rc-rate@~2.6.0:
   dependencies:
     classnames "^2.2.5"
     rc-util "^4.20.1"
+=======
+rc-rate@~2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/rc-rate/-/rc-rate-2.5.1.tgz#55fc5fd23ea9dcc72250b9a889803479f4842961"
+  integrity sha512-3iJkNJT8xlHklPCdeZtUZmJmRVUbr6AHRlfSsztfYTXVlHrv2TcPn3XkHsH+12j812WVB7gvilS2j3+ffjUHXg==
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.5.8"
+    rc-util "^4.3.0"
+    react-lifecycles-compat "^3.0.4"
+>>>>>>> master
 
 rc-resize-observer@^0.2.0:
   version "0.2.1"
@@ -9186,9 +9300,15 @@ rc-resize-observer@^0.2.0:
     resize-observer-polyfill "^1.5.1"
 
 rc-select@^10.1.0, rc-select@~10.2.0:
+<<<<<<< HEAD
   version "10.2.5"
   resolved "https://registry.yarnpkg.com/rc-select/-/rc-select-10.2.5.tgz#826217e49c24e12680b231d8d9f041b75633a10a"
   integrity sha512-E5cdq+8kuTMdvDUmVXGdlHb4D0Effj/Xu988kUWSoALJtEAAdnUbuCJGhu04ehWtKMotGN5I9qlkLR4OdiLrgg==
+=======
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/rc-select/-/rc-select-10.2.2.tgz#3b882031825e68f728a16f0f593ce1e64eada263"
+  integrity sha512-BPdkMD97vj7n0/AeVCQv5oHossPLHc5cDLOc/hTed8NrEKt+QunFJllKNCISpziTdgvaRa07wzB19TNALnESJw==
+>>>>>>> master
   dependencies:
     classnames "2.x"
     rc-animate "^2.10.0"
@@ -9228,10 +9348,17 @@ rc-switch@~1.9.0:
     prop-types "^15.5.6"
     react-lifecycles-compat "^3.0.4"
 
+<<<<<<< HEAD
 rc-table@~7.5.2:
   version "7.5.3"
   resolved "https://registry.yarnpkg.com/rc-table/-/rc-table-7.5.3.tgz#1e706049540f3aaeaf1986101283b696ea03e1e3"
   integrity sha512-eQ+dyD66Rc/QEPSagkzkTtx6+unbIEf6zLPlKfP4iUgxTiXF7sLlmYQyQqbuFQZKE+qD1qow4HLPkY3xpUUqGg==
+=======
+rc-table@~7.4.2:
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/rc-table/-/rc-table-7.4.4.tgz#d61973c31741f22fde8b2da89993f21a2f100d2c"
+  integrity sha512-E/l+9BoEL5YWm8g3597iOSbIWh3Mqy+OeDPc/nbicWOh5cYucJDlYeoQ3xTJvKJBxu0mVzxDy1Uz9Cp/X+yVww==
+>>>>>>> master
   dependencies:
     classnames "^2.2.5"
     component-classes "^1.2.6"
@@ -9272,9 +9399,15 @@ rc-tree-select@~3.1.0:
     rc-util "^4.17.0"
 
 rc-tree@^3.1.0, rc-tree@~3.1.0:
+<<<<<<< HEAD
   version "3.1.7"
   resolved "https://registry.yarnpkg.com/rc-tree/-/rc-tree-3.1.7.tgz#f3e1084667259a8676202bdc442aceeddd870d2b"
   integrity sha512-9kMy/vHltSQGhpPQblf5bMTQ7WKyfawVXCv8hKilCz7+MhWlGEoBKpogAOenDN5bNF2m3YeWycbY9B5xr0WLww==
+=======
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/rc-tree/-/rc-tree-3.1.5.tgz#eb1c0d40f34ae2ad1ab8c951174c06e6a64957a6"
+  integrity sha512-LOUfsJg5XxtA4FKgGkuVwnbBlnh3VVtySF7LMp4ko0n8oIUBYnn2vs6WG41kuH0V4tLTlQhvCFup/6JEKL01sg==
+>>>>>>> master
   dependencies:
     classnames "2.x"
     prop-types "^15.5.8"
@@ -9295,18 +9428,32 @@ rc-trigger@^4.0.0, rc-trigger@~4.0.0:
     rc-animate "^2.10.2"
     rc-util "^4.20.0"
 
+<<<<<<< HEAD
 rc-upload@~3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/rc-upload/-/rc-upload-3.0.4.tgz#5fd8ba9eefc1e466225240ae997404693d86fa09"
   integrity sha512-dTCvj1iHxjHG0qo5UyN2ZmtueG9GG3xrOhOwnjsehaoOvl0TOjLbHkUIPPqLZk+wHb57Ue4KB7c3+IMgkDoBvw==
+=======
+rc-upload@~3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/rc-upload/-/rc-upload-3.0.1.tgz#400f0dad6455e722bace7b296919ab0c959ea4ce"
+  integrity sha512-d9znZEGlnPcXHSDkDxE1QEf7M1dH9utJGZrqVCpX84yP3HsrkNrFwBWGTaeCLv7uQyQaroxXNRxO7sa895kogw==
+>>>>>>> master
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.5"
 
+<<<<<<< HEAD
 rc-util@^4.0.4, rc-util@^4.11.0, rc-util@^4.12.0, rc-util@^4.13.0, rc-util@^4.14.0, rc-util@^4.15.3, rc-util@^4.16.1, rc-util@^4.17.0, rc-util@^4.20.0, rc-util@^4.20.1, rc-util@^4.20.3, rc-util@^4.5.1, rc-util@^4.6.0, rc-util@^4.8.0, rc-util@^4.9.0:
   version "4.20.5"
   resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-4.20.5.tgz#f7c77569e971ae6a8ad56f899cadd22275398325"
   integrity sha512-f67s4Dt1quBYhrVPq5QMKmK3eS2hN1NNIAyhaiG0HmvqiGYAXMQ7SP2AlGqv750vnzhJs38JklbkWT1/wjhFPg==
+=======
+rc-util@^4.0.4, rc-util@^4.11.0, rc-util@^4.12.0, rc-util@^4.13.0, rc-util@^4.14.0, rc-util@^4.15.3, rc-util@^4.16.1, rc-util@^4.17.0, rc-util@^4.20.0, rc-util@^4.20.1, rc-util@^4.3.0, rc-util@^4.5.1, rc-util@^4.6.0, rc-util@^4.8.0, rc-util@^4.9.0:
+  version "4.20.3"
+  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-4.20.3.tgz#c4d4ee6171cf685dc75572752a764310325888d3"
+  integrity sha512-NBBc9Ad5yGAVTp4jV+pD7tXQGqHxGM2onPSZFyVoJ5fuvRF+ZgzSjZ6RXLPE0pVVISRJ07h+APgLJPBcAeZQlg==
+>>>>>>> master
   dependencies:
     add-dom-event-listener "^1.1.0"
     prop-types "^15.5.10"
@@ -9390,6 +9537,7 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+<<<<<<< HEAD
 react-mapbox-gl@^4.8.3:
   version "4.8.3"
   resolved "https://registry.yarnpkg.com/react-mapbox-gl/-/react-mapbox-gl-4.8.3.tgz#11f5901fe26a4c704a6a22e797bd69404c320e47"
@@ -9401,6 +9549,8 @@ react-mapbox-gl@^4.8.3:
     deep-equal "1.0.1"
     supercluster "^7.0.0"
 
+=======
+>>>>>>> master
 react-redux@^7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.0.tgz#f970f62192b3981642fec46fd0db18a074fe879d"
@@ -9416,6 +9566,8 @@ react-router-dom@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18"
   integrity sha512-7BPHAaIwWpZS074UKaw1FjVdZBSVWEk8IuDXdB+OkLb8vd/WRQIpA4ag9WQk61aEfQs47wHyjWUoUGGZxpQXew==
+<<<<<<< HEAD
+=======
   dependencies:
     "@babel/runtime" "^7.1.2"
     history "^4.9.0"
@@ -9440,6 +9592,41 @@ react-router@5.1.2:
     react-is "^16.6.0"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
+
+react-scripts@3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-3.4.1.tgz#f551298b5c71985cc491b9acf3c8e8c0ae3ada0a"
+  integrity sha512-JpTdi/0Sfd31mZA6Ukx+lq5j1JoKItX7qqEK4OiACjVQletM1P38g49d9/D0yTxp9FrSF+xpJFStkGgKEIRjlQ==
+>>>>>>> master
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    history "^4.9.0"
+    loose-envify "^1.3.1"
+    prop-types "^15.6.2"
+    react-router "5.1.2"
+    tiny-invariant "^1.0.2"
+    tiny-warning "^1.0.0"
+
+react-router@5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-5.1.2.tgz#6ea51d789cb36a6be1ba5f7c0d48dd9e817d3418"
+  integrity sha512-yjEuMFy1ONK246B+rsa0cUam5OeAQ8pyclRDgpxuSCrAlJ1qN9uZ5IgyKC7gQg0w8OM50NXHEegPh/ks9YuR2A==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    history "^4.9.0"
+    hoist-non-react-statics "^3.1.0"
+    loose-envify "^1.3.1"
+    mini-create-react-context "^0.3.0"
+    path-to-regexp "^1.7.0"
+    prop-types "^15.6.2"
+    react-is "^16.6.0"
+    tiny-invariant "^1.0.2"
+    tiny-warning "^1.0.0"
+
+react-thunk@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-thunk/-/react-thunk-1.0.0.tgz#79813d47f31147e81aee841ed5e76a9e3eabc8b1"
+  integrity sha1-eYE9R/MRR+ga7oQe1edqnj6ryLE=
 
 react-thunk@^1.0.0:
   version "1.0.0"
@@ -9549,11 +9736,14 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
+<<<<<<< HEAD
 redux-devtools-extension@^2.13.8:
   version "2.13.8"
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
   integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
 
+=======
+>>>>>>> master
 redux-form@^8.3.5:
   version "8.3.5"
   resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-8.3.5.tgz#937629401d9249ecc557f385818a5095ca5898a8"
@@ -9760,11 +9950,14 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
+<<<<<<< HEAD
 reselect@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.0.0.tgz#f2529830e5d3d0e021408b246a206ef4ea4437f7"
   integrity sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA==
 
+=======
+>>>>>>> master
 resize-observer-polyfill@^1.5.0, resize-observer-polyfill@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
@@ -9792,6 +9985,7 @@ resolve-pathname@^3.0.0:
   resolved "https://registry.yarnpkg.com/resolve-pathname/-/resolve-pathname-3.0.0.tgz#99d02224d3cf263689becbb393bc560313025dcd"
   integrity sha512-C7rARubxI8bXFNB/hqcp/4iUeIXJhJZvFPFPiSPRnhU5UPxzMFIl+2E6yY6c4k9giDJAhtV+enfA+G89N6Csng==
 
+<<<<<<< HEAD
 resolve-protobuf-schema@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/resolve-protobuf-schema/-/resolve-protobuf-schema-2.1.0.tgz#9ca9a9e69cf192bbdaf1006ec1973948aa4a3758"
@@ -9799,6 +9993,8 @@ resolve-protobuf-schema@^2.1.0:
   dependencies:
     protocol-buffers-schema "^3.3.1"
 
+=======
+>>>>>>> master
 resolve-url-loader@3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/resolve-url-loader/-/resolve-url-loader-3.1.1.tgz#28931895fa1eab9be0647d3b2958c100ae3c0bf0"
@@ -9901,6 +10097,14 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rmc-feedback@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rmc-feedback/-/rmc-feedback-2.0.0.tgz#cbc6cb3ae63c7a635eef0e25e4fbaf5ac366eeaa"
+  integrity sha512-5PWOGOW7VXks/l3JzlOU9NIxRpuaSS8d9zA3UULUCuTKnpwBHNvv1jSJzxgbbCQeYzROWUpgKI4za3X4C/mKmQ==
+  dependencies:
+    babel-runtime "6.x"
+    classnames "^2.2.5"
 
 rsvp@^4.8.4:
   version "4.8.5"
@@ -10023,6 +10227,7 @@ schema-utils@^2.5.0, schema-utils@^2.6.0, schema-utils@^2.6.1, schema-utils@^2.6
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
+<<<<<<< HEAD
 schema-utils@^2.6.6:
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.6.6.tgz#299fe6bd4a3365dc23d99fd446caff8f1d6c330c"
@@ -10031,6 +10236,8 @@ schema-utils@^2.6.6:
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
+=======
+>>>>>>> master
 scroll-into-view-if-needed@^2.2.20:
   version "2.2.24"
   resolved "https://registry.yarnpkg.com/scroll-into-view-if-needed/-/scroll-into-view-if-needed-2.2.24.tgz#12bca532990769bd509115a49edcfa755e92a0ea"
@@ -10875,11 +11082,14 @@ tinycolor2@^1.4.1:
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
 
+<<<<<<< HEAD
 tinyqueue@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/tinyqueue/-/tinyqueue-2.0.3.tgz#64d8492ebf39e7801d7bd34062e29b45b2035f08"
   integrity sha512-ppJZNDuKGgxzkHihX8v9v9G5f+18gzaTfrukGrq6ueg0lmH4nqVnA2IPG0AEH3jKEk2GRJCUhDoqpoiw3PHLBA==
 
+=======
+>>>>>>> master
 tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
