@@ -88,7 +88,6 @@ export const getRoutes = () => async (dispatch: any) => {
 export const addNewRoute = (route:any) => async (dispatch: any) => {
     await dispatch(setEmptyNewRoute())
     let response: any = await routesAPI.addRoute(route)
-    console.log(response)
     if (response.response.status !== 200) {
       console.log(`some error with response ststus ${response.status}`)
     } else {
