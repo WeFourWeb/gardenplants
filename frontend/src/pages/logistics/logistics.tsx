@@ -5,8 +5,6 @@ import Maps from '../../modules/map/map'
 import { connect } from 'react-redux'
 import { getOrders } from '../../redux/reducers/ordersReducer'
 import Order from '../../components/order/Order'
-import Orders from '../../modules/orders/orders'
-
 
 
 const Logistics = (props: any) => {
