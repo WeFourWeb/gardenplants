@@ -5,13 +5,13 @@ const DropDownMenu = (props) => {
   return(
     <Menu >
     <Menu.Item onClick={() => {props.setDriverName('James Petrov')}}>
-      <span>James May</span>  
+      <span>James Зуекщм</span>  
     </Menu.Item>
-    <Menu.Item onClick={() => {props.setDriverName('Richard Ivanov')}}>
-      <span>Richard Sapagov</span> 
+    <Menu.Item onClick={() => {props.setDriverName('Richard Sapоgov')}}>
+      <span>Richard Sapоgov</span> 
     </Menu.Item>
-    <Menu.Item onClick={() => {props.setDriverName('Jeremy Sidorov')}}>
-      <span>Jeremy Katamaranov</span> 
+    <Menu.Item onClick={() => {props.setDriverName('Jeremy Smirnov')}}>
+      <span>Jeremy Smirnov</span> 
     </Menu.Item>
   </Menu>
   )
