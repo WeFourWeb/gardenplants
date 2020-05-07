@@ -8,10 +8,10 @@ const DropDownMenu = (props) => {
       <span>James May</span>  
     </Menu.Item>
     <Menu.Item onClick={() => {props.setDriverName('Richard Ivanov')}}>
-      <span>Richard Hammond</span> 
+      <span>Richard Sapagov</span> 
     </Menu.Item>
     <Menu.Item onClick={() => {props.setDriverName('Jeremy Sidorov')}}>
-      <span>Jeremy Clarcson</span> 
+      <span>Jeremy Katamaranov</span> 
     </Menu.Item>
   </Menu>
   )

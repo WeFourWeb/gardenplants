@@ -57,7 +57,7 @@ const MapboxGLMap = ({addNewPoint, routes, orders}, ...props) => {
         'description': 
         `Order №${adress.orderId}
         <br/>
-        <button id="get_point">Add point to route</button>`,
+        <button style="background-color: #1890ff; color: white; border: none;" id="get_point">Add point to route</button>`,
         'icon': 'garden'
         },
         'geometry': {
