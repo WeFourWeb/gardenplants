@@ -23,6 +23,7 @@ type LogisticProps = {
 const Logistics: React.FC<LogisticProps> = ({setRouteDeliveringDate, setDriverName, deleteRoute, addNewRoute, newRoute, setNewPointInRoute, getOrders, getRoutes, routes, orders}, ...props) => {
 
     useEffect(() => { 
+        let a =2;
         getOrders()
         getRoutes()
     }, [])   
