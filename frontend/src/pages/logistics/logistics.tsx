@@ -7,6 +7,7 @@ import { getOrders } from '../../redux/reducers/ordersReducer'
 import Order from '../../components/order/Order'
 
 
+
 const Logistics = (props: any) => {
     useEffect(() => {
         getOrders()

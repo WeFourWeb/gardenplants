@@ -10,12 +10,10 @@ import { NavLink, Redirect } from 'react-router-dom';
 import Administration from '../../../modules/administration/administration';
 import { Route } from 'react-router-dom';
 import Logistics from '../../../pages/logistics';
-<<<<<<< HEAD
+
 import Routes from '../../../modules/routes/components/routes';
-=======
-import Orders from '../../../modules/orders/orders';
-import ProductManagement from '../../productManagement/component/productManagement';
->>>>>>> master
+
+
 import { connect } from 'react-redux';
 
 const { Header, Footer, Sider } = Layout;
@@ -71,14 +69,10 @@ const MainPage = (props:any) => {
           <Layout>
             <Route path="/main_page/administration" render = { () => <Administration/>}/>
             <Route path="/main_page/logistics" render = { () => <Logistics/>}/>
-<<<<<<< HEAD
+
             {/* <Route path="/main_page/orders" render = { () => <Routes/>}/> */}
             </Layout>
-=======
-            <Route path="/main_page/orders" render = { () => <Orders/>}/>
-            <Route path="/main_page/product_management" render = { () => <ProductManagement/>}/>
-          </Layout>
->>>>>>> master
+
         </Layout>
       );
     
