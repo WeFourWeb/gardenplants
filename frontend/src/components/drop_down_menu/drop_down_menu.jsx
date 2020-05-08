@@ -5,7 +5,7 @@ const DropDownMenu = (props) => {
   return(
     <Menu >
     <Menu.Item onClick={() => {props.setDriverName('James Petrov')}}>
-      <span>James Зуекщм</span>  
+      <span>James Petrov</span>  
     </Menu.Item>
     <Menu.Item onClick={() => {props.setDriverName('Richard Sapоgov')}}>
       <span>Richard Sapоgov</span> 

@@ -33,9 +33,7 @@ const MainPage = (props:any) => {
       <Redirect to='/'/>
     )
   }
-  
       return (
-      
         <Layout style={{ minHeight: '100vh' }}>
          <Sider  collapsed={collapsed} onCollapse={changeEditMode} onMouseEnter={() => (setEditMode(false))} onMouseLeave={() => (setEditMode(true))} >
             <div className="logo" />
@@ -43,25 +41,19 @@ const MainPage = (props:any) => {
               <Menu.Item key="1">
                 <NavLink to="/main_page/administration">
                 <DesktopOutlined />
-                <span>Administration</span>
+                <span>Home</span>
                 </NavLink>
               </Menu.Item>
               <Menu.Item key="2">
                 <NavLink to="/main_page/logistics">
                   <PieChartOutlined />
-                  <span>Logistics</span>
+                  <span>Delivery Routes</span>
                 </NavLink>
               </Menu.Item>
               <Menu.Item key="3">
                 <NavLink to="/main_page/orders">
                 <FileDoneOutlined/>
-                  <span>Orders</span>
-                </NavLink>
-              </Menu.Item>
-              <Menu.Item key="4">
-                <NavLink to="/main_page/product_management">
-                <FileDoneOutlined/>
-                  <span>Product management</span>
+                  <span>Customer Orders</span>
                 </NavLink>
               </Menu.Item>
             </Menu>
@@ -75,7 +67,6 @@ const MainPage = (props:any) => {
 
         </Layout>
       );
-    
   }
 
 export default MainPage;

@@ -1,16 +1,35 @@
-.order_wrapper {
+.route_wrapper {
+    display: flex;
     background-color: white;
-    padding: 0 5px;
-    border-bottom: 1px solid rgb(242, 242, 242);
 }
 
-.order_wrapper :hover {
-    background-color: rgb(242, 242, 242);
-    
+.route_wrapper :hover {
+    background-color: rgb(246, 246, 246);
+}
+
+
+.route {
+    padding: 15px 15px;
+    background-color: white;
+    flex-grow: 1;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.route_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orders_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
 }
 
-.order_number {
-    font-weight: 600;
-    font-size: 14px;
+.order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center 
 }

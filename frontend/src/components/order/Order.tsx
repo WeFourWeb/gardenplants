@@ -1,29 +1,57 @@
-import React from 'react'
-import { Layout } from 'antd'
+import React, { useState } from 'react'
 import style from './order.module.css'
+import { EllipsisOutlined, DeleteOutlined, ExclamationCircleOutlined, CarTwoTone } from '@ant-design/icons';
+import { Button, Modal } from 'antd';
+//import DropDownMenu from '../drop_down_menu/drop_down_menu';
 
-type OrderProps = {
-    collapsed: boolean
-}
+const { confirm } = Modal;
+
  
-const Order:React.FC<OrderProps> =({collapsed}) => {     
+
+
+const Order:React.FC =(props: any) => {   
+  console.log(props)
+  
+  const[rolled, changeMode]=useState(true)
+  let changeEditMode = () => {
+    if(rolled == false){
+        changeMode(true);
+    } else {
+        changeMode(false);
+    }
+}
+// Points in Route
   return(
-    <Layout className={style.order_wrapper}>
+    <div className={style.route_wrapper}>
         {
-            !collapsed
-            ? <div >
-                <div className={style.order_number}>№ 12654 Title</div>
-                <div>description Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                    Ipsa provident optio, fugit adipisci doloribus sunt quo sed soluta error
-                    molestiae atque laborum corrupti suscipit doloremque nulla, consectetur 
-                    cum repellendus quaerat!</div>
+          rolled
+          ?   <div onDoubleClick={changeEditMode} className={style.route}>
+                  <div  className={style.route_header}>
+                  <div style={{color: 'black'}}>Order id: {props.orderId} </div>
+                  
+                  <Button shape='circle' size='small' type='primary' onClick={ () => props.addNewPoint([props.lng , props.lat], props.orderId)}>+</Button>
+                  </div>  
               </div>
-            : <div >
-                <div className={style.order_number}>№ 12654</div>
-                <div> Title</div>
+          :   <div onDoubleClick={changeEditMode} className={style.route}>
+                <div  className={style.route_header}>
+                  <div style={{color: 'black'}}>Order id: {props.orderId} </div> 
+                  <Button shape='circle' size='small' type='primary' onClick={ () => props.addNewPoint([props.lng , props.lat], props.orderId)}>+</Button>
+                    
+                  </div>  
+                  <div>
+                    <div style={{marginLeft: '10px'}}>
+                      Postcode: {props.postcode}
+                    </div>
+                    <div style={{marginLeft: '10px'}}>
+                      Latitude: {props.lat}
+                    </div>
+                    <div style={{marginLeft: '10px'}}>
+                      Longitude: {props.lng}
+                    </div>
+                    </div>
               </div>
         }
-    </Layout>
+    </div>
   )
   }
  

@@ -5,6 +5,7 @@ import Maps from '../../../modules/map/map'
 import Routes from '../../../modules/routes/components/routes'
 import { LoadingOutlined } from '@ant-design/icons';
 import MapboxGLMap from '../../../modules/map/MapboxGLMap'
+import OrdersBar from '../../../modules/orders_bar'
 
 
 type LogisticProps = {
@@ -31,9 +32,16 @@ const Logistics: React.FC<LogisticProps> = ({setRouteDeliveringDate, setDriverNa
         setNewPointInRoute({coordinates, ordersId}) 
     }
     return (
-        <div >
-            
-            <Routes setRouteDeliveringDate={setRouteDeliveringDate} setDriverName={setDriverName} deleteRoute={deleteRoute} addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
+        <div>
+            <div style={{display: 'flex', marginLeft: '22vw'}}>
+                <Routes setRouteDeliveringDate={setRouteDeliveringDate} setDriverName={setDriverName} deleteRoute={deleteRoute} addNewRoute={addNewRoute} newRoute={newRoute} routes={routes}/>
+            </div>
+            <div className={style.dlya_dolboeba}>
+                
+            </div>
+            <div>
+                <OrdersBar addNewPoint={addNewPoint} orders={orders}/>
+           </div>
            
            <div className={style.content}> 
            {
@@ -43,6 +51,7 @@ const Logistics: React.FC<LogisticProps> = ({setRouteDeliveringDate, setDriverNa
            }
                 
            </div>
+           
            
           
             

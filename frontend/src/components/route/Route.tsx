@@ -40,7 +40,7 @@ let pointsArray = props.ordersId.map( (order: any) => <div key={order} {...order
           rolled
           ?   <div onClick={changeEditMode} className={style.route}>
                   <div  className={style.route_header}>
-                  <div style={{color: 'black'}}>Route id: </div> {props._id}
+                  <div style={{color: 'black'}}>Deliverng date: </div> {props.deliveringDate}
                   
                   <EllipsisOutlined rotate={90} style={{fontSize: '15px'}}/>
                   </div>  
